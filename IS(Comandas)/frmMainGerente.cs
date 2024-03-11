@@ -39,5 +39,13 @@ namespace IS_Comandas_
 
             this.Hide();
         }
+
+        private void btnAddEmpleado_Click(object sender, EventArgs e)
+        {
+            frmAddEmpleado frmAEmp = new frmAddEmpleado();
+            frmAEmp.Show();
+
+            this.Hide();
+        }
     }
 }
