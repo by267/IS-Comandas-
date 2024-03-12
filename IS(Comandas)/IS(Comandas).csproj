@@ -64,6 +64,12 @@
     <Compile Include="frmAddEmpleado.Designer.cs">
       <DependentUpon>frmAddEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddMesa.Designer.cs">
+      <DependentUpon>frmAddMesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEmpleado.resx">
       <DependentUpon>frmAddEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddMesa.resx">
+      <DependentUpon>frmAddMesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainCajero.resx">
       <DependentUpon>frmMainCajero.cs</DependentUpon>

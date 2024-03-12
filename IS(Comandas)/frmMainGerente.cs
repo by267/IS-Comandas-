@@ -16,22 +16,6 @@ namespace IS_Comandas_
         {
             InitializeComponent();
         }
-
-        private void frmMainGerente_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-        }
-
-        private void frmMainGerente_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btniCerrar_Click(object sender, EventArgs e)
         {
             Form1 frm = new Form1();
@@ -39,13 +23,19 @@ namespace IS_Comandas_
 
             this.Hide();
         }
-
-        private void btnAddEmpleado_Click(object sender, EventArgs e)
+        private void btnAddEmpleado_Click_1(object sender, EventArgs e)
         {
             frmAddEmpleado frmAEmp = new frmAddEmpleado();
             frmAEmp.Show();
 
             this.Hide();
+        }
+
+        private void btnAddMesa_Click(object sender, EventArgs e)
+        {
+            frmAddMesa frmAEmp = new frmAddMesa();
+            this.Enabled = false;
+            frmAEmp.Show();
         }
     }
 }

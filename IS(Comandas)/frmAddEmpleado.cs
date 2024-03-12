@@ -15,6 +15,7 @@ namespace IS_Comandas_
         public frmAddEmpleado()
         {
             InitializeComponent();
+            txtNombre.Focus();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -23,6 +24,16 @@ namespace IS_Comandas_
             frmMGer.Show();
 
             this.Hide();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAddEmpleado_Load(object sender, EventArgs e)
+        {
+            txtNombre.Focus();
         }
     }
 }
