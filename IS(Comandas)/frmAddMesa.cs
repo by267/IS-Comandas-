@@ -29,9 +29,24 @@ namespace IS_Comandas_
 
         private void btnRechazar_Click(object sender, EventArgs e)
         {
+            //timer2.Start();
+            //timer1.Start();
+          
+            this.Hide();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
             frmMainGerente frm = new frmMainGerente();
             frm.Show();
-            this.Hide();
+            timer1.Stop();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            frmMainGerente frm = new frmMainGerente();
+            frm.Hide();
+            timer2.Stop();
         }
     }
 }

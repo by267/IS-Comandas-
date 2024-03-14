@@ -20,7 +20,6 @@ namespace IS_Comandas_
         {
             Form1 frm = new Form1();
             frm.Show();
-
             this.Hide();
         }
         private void btnAddEmpleado_Click_1(object sender, EventArgs e)
@@ -34,8 +33,29 @@ namespace IS_Comandas_
         private void btnAddMesa_Click(object sender, EventArgs e)
         {
             frmAddMesa frmAEmp = new frmAddMesa();
-            this.Enabled = false;
+            //this.Enabled = false;
             frmAEmp.Show();
+            //this.Hide();
+        }
+
+        private void frmMainGerente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            frmAddCategoria frmAEmp = new frmAddCategoria();
+            //this.Enabled = false;
+            frmAEmp.Show();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            frmAddMenu frmAEmp = new frmAddMenu();
+            //this.Enabled = false;
+            frmAEmp.Show();
+            this.Hide();
         }
     }
 }

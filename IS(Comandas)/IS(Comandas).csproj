@@ -52,17 +52,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alertMesaAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alertMesaAdd.Designer.cs">
+      <DependentUpon>alertMesaAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCategoria.Designer.cs">
+      <DependentUpon>frmAddCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddEmpleado.Designer.cs">
       <DependentUpon>frmAddEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddMenu.Designer.cs">
+      <DependentUpon>frmAddMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddMesa.cs">
       <SubType>Form</SubType>
@@ -82,13 +100,28 @@
     <Compile Include="frmMainGerente.Designer.cs">
       <DependentUpon>frmMainGerente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMainMesero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainMesero.Designer.cs">
+      <DependentUpon>frmMainMesero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="alertMesaAdd.resx">
+      <DependentUpon>alertMesaAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCategoria.resx">
+      <DependentUpon>frmAddCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddEmpleado.resx">
       <DependentUpon>frmAddEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddMenu.resx">
+      <DependentUpon>frmAddMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddMesa.resx">
       <DependentUpon>frmAddMesa.cs</DependentUpon>

@@ -10,23 +10,21 @@ using System.Windows.Forms;
 
 namespace IS_Comandas_
 {
-    public partial class frmAddEmpleado : Form
+    public partial class frmAddCategoria : Form
     {
-        public frmAddEmpleado()
+        public frmAddCategoria()
         {
             InitializeComponent();
             txtNombre.Focus();
         }
-        private void frmAddEmpleado_Load(object sender, EventArgs e)
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+        private void frmAddCategoria_Load(object sender, EventArgs e)
         {
             txtNombre.Focus();
-        }
-        private void btnRegresar_Click_1(object sender, EventArgs e)
-        {
-            frmMainGerente frmMGer = new frmMainGerente();
-            frmMGer.Show();
-
-            this.Hide();
         }
     }
 }
