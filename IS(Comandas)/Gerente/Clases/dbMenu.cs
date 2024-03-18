@@ -20,7 +20,7 @@ namespace IS_Comandas_.Gerente.Clases
         public dbMenu()
         {
             conexion = new MySqlConnection();
-            strConexion = "Server=localhost;UserId=root;Password=;DataBase=comandas";
+            strConexion = "Server=localhost;UserId=root;Password=123456;DataBase=comandas";
             conexion.ConnectionString = strConexion;
             comando = new MySqlCommand();
             adaptador = new MySqlDataAdapter();
@@ -128,8 +128,9 @@ namespace IS_Comandas_.Gerente.Clases
         }
         public void Actualizar(ClassMenu obj)
         {
-            String sqlConsulta = "update menu set nombre = @nombre,  descripcion = @descripcion, precio = @precio, categoria = @categoria where nombre = @nombre";
+            String sqlConsulta = "update menu set nombre = @nombre,  descripcion = @descripcion, precio = @precio, categoria = @categoria where idMenu = @idMenu";
             comando.Parameters.Clear();
+            comando.Parameters.Add("@idMenu", MySqlDbType.Int64).Value = obj.Id;
             comando.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = obj.Nombre;
             comando.Parameters.Add("@descripcion", MySqlDbType.VarChar).Value = obj.Descripcion;
             comando.Parameters.Add("@precio", MySqlDbType.Float).Value = obj.Precio;

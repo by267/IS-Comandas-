@@ -23,7 +23,7 @@ namespace IS_Comandas_.Gerente.Formularios
             cmbIdProducto.Text = "Selecciona una opcion";
             dbMenu db = new dbMenu();
 
-            cmbIdProducto.DataSource = db.ConsultarU("idMenu");
+            cmbIdProducto.DataSource = db.ConsultarU("nombre");
             cmbIdProducto.DisplayMember = "nombre";
             cmbIdProducto.ValueMember = "idMenu";
         }
@@ -43,6 +43,19 @@ namespace IS_Comandas_.Gerente.Formularios
             txtPrecio.Enabled = true;
             cmbCategoria.Enabled = true;
             cmbIdProducto.Enabled = false;
+        }
+        private void Uhab()
+        {
+            txtNombre.Enabled = false;
+            txtDescripcion.Enabled = false;
+            txtPrecio.Enabled = false;
+            cmbCategoria.Enabled = false;
+            cmbIdProducto.Enabled = true;
+
+            txtNombre.Text=null;
+            txtDescripcion.Text=null;
+            txtPrecio.Text=null;
+            cmbCategoria.Text=null;
         }
         private void tComboID_Tick(object sender, EventArgs e)
         {
@@ -88,14 +101,16 @@ namespace IS_Comandas_.Gerente.Formularios
         {
             dbMenu database = new dbMenu();
             ClassMenu obj = new ClassMenu();
-            obj.Nombre = cmbIdProducto.Text;
+            obj.Id = int.Parse(cmbIdProducto.SelectedValue.ToString());
             obj.Nombre = txtNombre.Text;
             obj.Descripcion = txtDescripcion.Text;
             obj.Precio = float.Parse(txtPrecio.Text);
             obj.Categoria = cmbCategoria.Text;
-
+            Uhab();
+            tComboID.Start();
             database.Actualizar(obj);
-            MessageBox.Show("Se actualizo la informacion con exito");
+            MessageBox.Show("Se actualizo la informacion con exito", "Sistema");
+            tComboID.Stop();
         }
     }
 }
