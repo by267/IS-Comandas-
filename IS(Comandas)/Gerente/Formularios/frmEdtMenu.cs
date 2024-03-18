@@ -23,9 +23,9 @@ namespace IS_Comandas_.Gerente.Formularios
             cmbIdProducto.Text = "Selecciona una opcion";
             dbMenu db = new dbMenu();
 
-            cmbIdProducto.DataSource = db.ConsultarU("nombre");
+            cmbIdProducto.DataSource = db.ConsultarU("idMenu");
             cmbIdProducto.DisplayMember = "nombre";
-            cmbIdProducto.ValueMember = "nombre";
+            cmbIdProducto.ValueMember = "idMenu";
         }
         private void cargarComboP()
         {
@@ -42,6 +42,7 @@ namespace IS_Comandas_.Gerente.Formularios
             txtDescripcion.Enabled = true;
             txtPrecio.Enabled = true;
             cmbCategoria.Enabled = true;
+            cmbIdProducto.Enabled = false;
         }
         private void tComboID_Tick(object sender, EventArgs e)
         {

@@ -28,7 +28,7 @@ namespace IS_Comandas_
         {
             frmEmpleado frm = new frmEmpleado();
             frm.Show();
-            this.Hide();
+            
         }
         private void btnAddMesa_Click(object sender, EventArgs e)
         {

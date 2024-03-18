@@ -127,7 +127,7 @@
             this.btnAceptar.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 0, 5);
             this.btnAceptar.Size = new System.Drawing.Size(130, 45);
             this.btnAceptar.TabIndex = 14;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "Agregar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnVolver

@@ -30,8 +30,6 @@ namespace IS_Comandas_.Gerente
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmMainGerente frm = new frmMainGerente();
-            frm.Show();
             this.Hide();
         }
         private void btnModificar_Click(object sender, EventArgs e)

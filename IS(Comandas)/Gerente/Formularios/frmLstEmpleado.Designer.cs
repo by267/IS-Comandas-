@@ -145,6 +145,7 @@
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLstEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLstEmpleado";
             this.Load += new System.EventHandler(this.frmLstEmpleado_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);

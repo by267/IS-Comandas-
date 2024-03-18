@@ -19,7 +19,7 @@ namespace IS_Comandas_.Gerente.Clases
         public dbMesa()
         {
             conexion = new MySqlConnection();
-            strConexion = "Server=localhost;UserId=root;Password=123456;DataBase=comandas";
+            strConexion = "Server=localhost;UserId=root;Password=;DataBase=comandas";
             conexion.ConnectionString = strConexion;
             comando = new MySqlCommand();
             adaptador = new MySqlDataAdapter();

@@ -47,7 +47,7 @@
             this.btnAceptar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAceptar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAceptar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAceptar.FillColor = System.Drawing.Color.DarkOrchid;
+            this.btnAceptar.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnAceptar.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(340, 175);
@@ -69,7 +69,7 @@
             this.btnRechazar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRechazar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRechazar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRechazar.FillColor = System.Drawing.Color.DarkOrchid;
+            this.btnRechazar.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnRechazar.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRechazar.ForeColor = System.Drawing.Color.White;
             this.btnRechazar.Location = new System.Drawing.Point(30, 175);
@@ -138,7 +138,6 @@
             this.Name = "frmAddMesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddMesa";
-//            this.Load += new System.EventHandler(this.frmAddMesa_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
