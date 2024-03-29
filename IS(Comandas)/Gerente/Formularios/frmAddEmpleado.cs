@@ -23,8 +23,6 @@ namespace IS_Comandas_
         private void Limpiar()
         {
             txtNombre.Text = null;
-            txtAPaterno.Text = null;
-            txtAMaterno.Text = null;
             txtUsuario.Text = null;
             txtPass.Text = null;
             cmbPuesto.Text = null;
@@ -39,14 +37,11 @@ namespace IS_Comandas_
             frm.Show();
             this.Close();
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             dbEmpleado database = new dbEmpleado();
             ClassEmpleado obj = new ClassEmpleado();
             obj.Nombre = txtNombre.Text;
-            obj.ApellidoPaterno = txtAPaterno.Text;
-            obj.ApellidoMaterno = txtAMaterno.Text;
             obj.Usuario = txtUsuario.Text;
             obj.Puesto = cmbPuesto.Text;
             obj.Password = txtPass.Text;
@@ -60,7 +55,7 @@ namespace IS_Comandas_
             }
             else
             {
-                if (txtNombre.Text != "" && txtAPaterno.Text != "" && txtAMaterno.Text != "" && txtUsuario.Text != "" && txtPass.Text != "" && cmbPuesto.Text != "")
+                if (txtNombre.Text != "" && txtUsuario.Text != "" && txtPass.Text != "" && cmbPuesto.Text != "")
                 {
                     database.Agregar(obj);
                     MessageBox.Show("Se realizo la inserccion con exito", "Sistema");
@@ -73,6 +68,12 @@ namespace IS_Comandas_
                 }
             }
         }
-
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

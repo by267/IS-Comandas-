@@ -84,13 +84,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 71);
+            this.label1.Location = new System.Drawing.Point(0, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(410, 30);
+            this.label1.Size = new System.Drawing.Size(500, 30);
             this.label1.TabIndex = 16;
             this.label1.Text = "Desea agregar una nueva mesa a la lista?";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -117,14 +117,14 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Leelawadee UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(206, 9);
+            this.label2.Location = new System.Drawing.Point(0, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 30);
+            this.label2.Size = new System.Drawing.Size(500, 30);
             this.label2.TabIndex = 17;
-            this.label2.Text = "ALERTA";
+            this.label2.Text = "Agregar Mesa";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAddMesa
             // 
@@ -139,9 +139,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddMesa";
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

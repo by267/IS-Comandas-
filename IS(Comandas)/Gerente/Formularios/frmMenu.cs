@@ -26,7 +26,7 @@ namespace IS_Comandas_.Gerente.Formularios
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            frmDelMenu frm = new frmDelMenu();
+            frmDelMenu2 frm = new frmDelMenu2();
             frm.Show();
             this.Close();
         }
@@ -45,7 +45,7 @@ namespace IS_Comandas_.Gerente.Formularios
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmEdtMenu frm = new frmEdtMenu();
+            frmEdtMenu2 frm = new frmEdtMenu2();
             frm.Show();
             this.Close();
         }

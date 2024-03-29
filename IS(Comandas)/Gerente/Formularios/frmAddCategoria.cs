@@ -33,7 +33,6 @@ namespace IS_Comandas_
         {
             txtNombre.Focus();
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             dbCategoria database = new dbCategoria();
@@ -61,6 +60,12 @@ namespace IS_Comandas_
                 }
             }
         }
-        
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

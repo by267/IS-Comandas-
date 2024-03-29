@@ -141,5 +141,10 @@ namespace IS_Comandas_.Gerente.Clases
             comando.ExecuteNonQuery();
             this.cerrar();
         }
+        public void datagrid(ClassMenu obj) 
+        {
+            
+          
+        }
     }
 }

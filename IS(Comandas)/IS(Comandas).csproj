@@ -121,11 +121,29 @@
     <Compile Include="Gerente\Formularios\frmCategoria.Designer.cs">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gerente\Formularios\frmDelMenu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerente\Formularios\frmDelMenu2.Designer.cs">
+      <DependentUpon>frmDelMenu2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gerente\Formularios\frmEdtCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerente\Formularios\frmEdtCategoria.Designer.cs">
+      <DependentUpon>frmEdtCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gerente\Formularios\frmEdtMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gerente\Formularios\frmEdtMenu.Designer.cs">
       <DependentUpon>frmEdtMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gerente\Formularios\frmEdtMenu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerente\Formularios\frmEdtMenu2.Designer.cs">
+      <DependentUpon>frmEdtMenu2.cs</DependentUpon>
     </Compile>
     <Compile Include="Gerente\Formularios\frmLstCategorias.cs">
       <SubType>Form</SubType>
@@ -155,12 +173,6 @@
     <Compile Include="Login\Control.cs" />
     <Compile Include="Gerente\Clases\ClassEmpleado.cs" />
     <Compile Include="Gerente\Clases\dbEmpleado.cs" />
-    <Compile Include="Gerente\Formularios\alertMesaAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gerente\Formularios\alertMesaAdd.Designer.cs">
-      <DependentUpon>alertMesaAdd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,14 +291,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\Session.cs" />
-    <EmbeddedResource Include="Gerente\Formularios\alertMesaAdd.resx">
-      <DependentUpon>alertMesaAdd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gerente\Formularios\frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gerente\Formularios\frmDelMenu2.resx">
+      <DependentUpon>frmDelMenu2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerente\Formularios\frmEdtCategoria.resx">
+      <DependentUpon>frmEdtCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gerente\Formularios\frmEdtMenu.resx">
       <DependentUpon>frmEdtMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerente\Formularios\frmEdtMenu2.resx">
+      <DependentUpon>frmEdtMenu2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gerente\Formularios\frmLstCategorias.resx">
       <DependentUpon>frmLstCategorias.cs</DependentUpon>

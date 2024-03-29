@@ -67,7 +67,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Leelawadee UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(622, 11);
+            this.label5.Location = new System.Drawing.Point(634, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(196, 50);
             this.label5.TabIndex = 24;
@@ -78,9 +78,9 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(25, 0);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(30, 5);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(70, 70);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 23;
             this.guna2PictureBox1.TabStop = false;
@@ -115,7 +115,7 @@
             this.btnDelEmpleado.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnDelEmpleado.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btnDelEmpleado.Location = new System.Drawing.Point(106, 175);
+            this.btnDelEmpleado.Location = new System.Drawing.Point(111, 175);
             this.btnDelEmpleado.Name = "btnDelEmpleado";
             this.btnDelEmpleado.Size = new System.Drawing.Size(300, 75);
             this.btnDelEmpleado.TabIndex = 19;
@@ -155,7 +155,7 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(300, 75);
             this.btnModificar.TabIndex = 21;
-            this.btnModificar.Text = "Restrablecer Contraseña";
+            this.btnModificar.Text = "Modificar";
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // pictureBox1
@@ -230,7 +230,7 @@
             this.btnVolver.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnVolver.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Location = new System.Drawing.Point(32, 320);
+            this.btnVolver.Location = new System.Drawing.Point(30, 315);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(200, 75);
             this.btnVolver.TabIndex = 36;
@@ -287,7 +287,6 @@
 
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2Button btnVolver;
         private Guna.UI2.WinForms.Guna2Button btnRegresar;
@@ -299,5 +298,6 @@
         private Guna.UI2.WinForms.Guna2Button btnLstEmpleados;
         private Guna.UI2.WinForms.Guna2Button btnDelEmpleado;
         private Guna.UI2.WinForms.Guna2Button btnAddEmpleado;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

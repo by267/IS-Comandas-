@@ -111,5 +111,17 @@ namespace IS_Comandas_.Gerente.Clases
             this.cerrar();
             return datos;
         }
+        public void Actualizar(ClassCategoria obj)
+        {
+            String sqlConsulta = "update categorias set nombre = @nombre where idCategorias = @id";
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@id", MySqlDbType.Int64).Value = obj.Id;
+            comando.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = obj.Nombre;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
     }
 }

@@ -43,6 +43,7 @@ namespace IS_Comandas_.Gerente.Formularios
             txtPrecio.Enabled = true;
             cmbCategoria.Enabled = true;
             cmbIdProducto.Enabled = false;
+            btnBuscar.Enabled = false;
         }
         private void Uhab()
         {

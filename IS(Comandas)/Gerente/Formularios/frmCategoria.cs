@@ -42,5 +42,12 @@ namespace IS_Comandas_.Gerente.Formularios
             frm.Show();
             this.Close();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            frmEdtCategoria frm = new frmEdtCategoria();
+            frm.Show();
+            this.Close();
+        }
     }
 }

@@ -94,5 +94,14 @@ namespace IS_Comandas_.Gerente.Clases
             this.cerrar();
             return datos;
         }
+        public void Eliminar()
+        {
+            String sqlConsulta = "DELETE FROM mesas ORDER BY idmesas DESC LIMIT 1;";
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
     }
 }

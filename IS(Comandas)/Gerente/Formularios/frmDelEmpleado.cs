@@ -35,7 +35,7 @@ namespace IS_Comandas_.Gerente
             }
             else
             {
-                obj.Usuario = cmbEmpleado.SelectedValue.ToString();
+                obj.Nombre = cmbEmpleado.SelectedValue.ToString();
 
                 tCombo.Start();
                 DataTable datos = new DataTable();
@@ -51,9 +51,9 @@ namespace IS_Comandas_.Gerente
             cmbEmpleado.Text = "Selecciona una opcion";
             dbEmpleado db = new dbEmpleado();
 
-            cmbEmpleado.DataSource = db.ConsultarU("usuario");
-            cmbEmpleado.DisplayMember = "Usuario";
-            cmbEmpleado.ValueMember = "Usuario";
+            cmbEmpleado.DataSource = db.ConsultarU("NombreCompleto");
+            cmbEmpleado.DisplayMember = "NombreCompleto";
+            cmbEmpleado.ValueMember = "NombreCompleto";
         }
         private void tCombo_Tick(object sender, EventArgs e)
         {

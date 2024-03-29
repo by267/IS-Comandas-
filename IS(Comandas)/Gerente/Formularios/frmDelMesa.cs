@@ -17,20 +17,15 @@ namespace IS_Comandas_.Gerente
         {
             InitializeComponent();
         }
-        private void cargarCombo()
-        {
-            cmbMesa.Text = "Selecciona una opcion";
-            dbMesa db = new dbMesa();
-
-            cmbMesa.DataSource = db.ConsultarU("idmesas");
-            cmbMesa.DisplayMember = "idmesas";
-            cmbMesa.ValueMember = "idmesas";
-        }
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void volver()
         {
             frmMesa frm = new frmMesa();
             frm.Show();
             this.Close();
+        }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            volver();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -38,7 +33,11 @@ namespace IS_Comandas_.Gerente
             dbMesa database = new dbMesa();
             ClassMesa obj = new ClassMesa();
 
-            if (cmbMesa.Text == "")
+            database.Eliminar();
+            MessageBox.Show("Mesa eliminada");
+            volver();
+
+            /*if (cmbMesa.Text == "")
             {
                 MessageBox.Show("Seleccion no valida", "Sistema");
 
@@ -54,16 +53,7 @@ namespace IS_Comandas_.Gerente
                 MessageBox.Show("Se elimino con exito", "Sistema");
 
                 tCombo.Stop();
-            }
-        }
-
-        private void tCombo_Tick(object sender, EventArgs e)
-        {
-            cargarCombo();
-        }
-        private void frmDelMesa_Load(object sender, EventArgs e)
-        {
-            cargarCombo();
+            }*/
         }
     }
 }

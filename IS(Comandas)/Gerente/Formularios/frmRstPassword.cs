@@ -17,20 +17,38 @@ namespace IS_Comandas_.Gerente
         {
             InitializeComponent();
         }
-        private void cargarCombo()
+        private void cargarComboN()
         {
-            cmbUsuario.Text = "Selecciona una opcion";
+            cmbEmpleado.Text = "Selecciona una opcion";
             dbEmpleado db = new dbEmpleado();
 
-            cmbUsuario.DataSource = db.ConsultarU("usuario");
-            cmbUsuario.DisplayMember = "Usuario";
-            cmbUsuario.ValueMember = "Usuario";
+            cmbEmpleado.DataSource = db.ConsultarU("NombreCompleto");
+            cmbEmpleado.DisplayMember = "NombreCompleto";
+            cmbEmpleado.ValueMember = "idEmpleado";
         }
-        private void limpiar()
+        private void hab()
         {
-            txtNewPass.Text = null;
-            txtRePass.Text = null;
-            //cmbUsuario.Text = null;
+            txtNombre.Enabled = true;
+            txtUsuario.Enabled = true;
+            txtPass.Enabled = true;
+            cmbPuesto.Enabled = true;
+        
+            btnBuscar.Enabled = false;
+            cmbEmpleado.Enabled = false;
+        }
+        private void Uhab()
+        {
+            txtUsuario.Enabled = false;
+            txtPass.Enabled = false;
+            cmbPuesto.Enabled = false;
+            txtNombre.Enabled=false;
+            btnBuscar.Enabled = true;
+            cmbEmpleado.Enabled = true;
+
+            txtNombre.Text = null;
+            txtPass.Text = null;
+            txtUsuario.Text = null;
+            cmbPuesto.Text = null;
         }
         private void btnRegresar_Click(object sender, EventArgs e)
         {
@@ -42,41 +60,57 @@ namespace IS_Comandas_.Gerente
         {
             dbEmpleado database = new dbEmpleado();
             ClassEmpleado obj = new ClassEmpleado();
-            if (txtNewPass.Text == txtRePass.Text)
-            {
-                obj.Password = txtNewPass.Text;
+            obj.Id = int.Parse(cmbEmpleado.SelectedValue.ToString());
+            obj.Nombre = txtNombre.Text;
+            obj.Usuario = txtUsuario.Text;
+            obj.Password = txtPass.Text;
+            obj.Puesto = cmbPuesto.Text;
+            Uhab();
+            tComboId.Start();
+            database.Actualizar(obj);
+            MessageBox.Show("Se actualizo la informacion con exito", "Sistema");
+            tComboId.Stop();
 
-                if (cmbUsuario.Text != "")
-                {
-                    obj.Usuario = cmbUsuario.SelectedValue.ToString();
-
-                    DataTable datos = new DataTable();
-                    datos = database.ConsultarCodigo(obj);
-                    if (txtNewPass.Text != "" && txtRePass.Text != "")
-                    {
-                        database.Actualizar(obj);
-                        MessageBox.Show("Se realizo el cambio con exito", "Sistema");                       
-
-                        limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Falto capturar informacion", "Sistema"); 
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Seleccion no valida", "Sistema");
-                }
-            }
-            else
-            {
-                MessageBox.Show("La contraseña no coincide");
-            }
         }
         private void frmEdtEmpleado_Load(object sender, EventArgs e)
         {
-            cargarCombo();
+            cargarComboN();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dbEmpleado database = new dbEmpleado();
+            ClassEmpleado obj = new ClassEmpleado();
+            DataTable datos = new DataTable();
+            if (cmbEmpleado.Text != "")
+            {
+                obj.Nombre = cmbEmpleado.Text;
+                datos = database.ConsultarCodigoH(obj);
+                if (datos.Rows.Count > 0)
+                {
+                    txtNombre.Text = datos.Rows[0]["NombreCompleto"].ToString();
+                    txtPass.Text = datos.Rows[0]["Password"].ToString();
+                    txtUsuario.Text = datos.Rows[0]["Usuario"].ToString();
+                    cmbPuesto.Items.Add(datos.Rows[0]["Puesto"].ToString());
+                    cmbPuesto.StartIndex = 0;
+                    hab();
+                }
+            }
+            else MessageBox.Show("Falto capturar informacion");
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tComboId_Tick(object sender, EventArgs e)
+        {
+            cargarComboN();
         }
     }
+    
 }
