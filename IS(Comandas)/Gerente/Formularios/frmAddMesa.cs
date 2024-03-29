@@ -28,10 +28,8 @@ namespace IS_Comandas_
             ClassMesa obj = new ClassMesa();
             DataTable datos = new DataTable();
             database.Agregar(obj);
-            MessageBox.Show("La mesa se agrego con exito", "Sistema");
-
+            MessageBox.Show("La mesa se agrego con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ReturnfrmMesa();
-
         }
         private void ReturnfrmMesa()
         {

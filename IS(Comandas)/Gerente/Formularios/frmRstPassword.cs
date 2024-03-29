@@ -32,6 +32,7 @@ namespace IS_Comandas_.Gerente
             txtUsuario.Enabled = true;
             txtPass.Enabled = true;
             cmbPuesto.Enabled = true;
+            btnModificar.Enabled = true;
         
             btnBuscar.Enabled = false;
             cmbEmpleado.Enabled = false;
@@ -68,7 +69,8 @@ namespace IS_Comandas_.Gerente
             Uhab();
             tComboId.Start();
             database.Actualizar(obj);
-            MessageBox.Show("Se actualizo la informacion con exito", "Sistema");
+            MessageBox.Show("La informacion se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             tComboId.Stop();
 
         }
@@ -96,7 +98,11 @@ namespace IS_Comandas_.Gerente
                     hab();
                 }
             }
-            else MessageBox.Show("Falto capturar informacion");
+            else
+            {
+                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)

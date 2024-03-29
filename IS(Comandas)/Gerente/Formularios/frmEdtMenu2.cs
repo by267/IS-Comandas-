@@ -109,7 +109,7 @@ namespace IS_Comandas_.Gerente.Formularios
             }
             else
             {
-                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -125,7 +125,7 @@ namespace IS_Comandas_.Gerente.Formularios
             obj.Categoria = cmbCategoria.Text;
             Uhab();
             database.Actualizar(obj);
-            MessageBox.Show("Se actualizo la informacion con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La informacion se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         private void cmbCategoria_Click(object sender, EventArgs e)

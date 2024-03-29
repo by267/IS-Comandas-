@@ -34,7 +34,7 @@ namespace IS_Comandas_.Gerente
             ClassMesa obj = new ClassMesa();
 
             database.Eliminar();
-            MessageBox.Show("Mesa eliminada");
+            MessageBox.Show("La mesa se elimino con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             volver();
 
             /*if (cmbMesa.Text == "")
