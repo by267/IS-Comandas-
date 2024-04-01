@@ -153,6 +153,11 @@ namespace IS_Comandas_.Gerente.Formularios
             {
                 e.Handled = true;
             }
+            // Convertir la primera letra a mayúscula.
+            if (txtNombre.SelectionStart == 0 && char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

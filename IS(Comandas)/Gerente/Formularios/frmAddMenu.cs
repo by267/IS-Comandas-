@@ -80,5 +80,39 @@ namespace IS_Comandas_
 
             this.Close();
         }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Validar si la tecla presionada es un número o un punto decimal.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto decimal.
+            if (e.KeyChar == '.' && txtPrecio.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            // Convertir la primera letra a mayúscula.
+            if (txtNombre.SelectionStart == 0 && char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
