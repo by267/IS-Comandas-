@@ -50,7 +50,7 @@ namespace IS_Comandas_.Gerente.Clases
         }
         public void Agregar(ClassMesa obj)
         {
-            String sqlConsulta = "insert into mesas () values()";
+            String sqlConsulta = "insert into mesas (estado) values('off')";
             comando.Parameters.Clear();
             //comando.Parameters.Add("@numero", MySqlDbType.Int64).Value = obj.Numero;
             this.abrir();

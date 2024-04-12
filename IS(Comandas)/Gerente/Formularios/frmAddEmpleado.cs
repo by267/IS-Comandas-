@@ -96,8 +96,24 @@ namespace IS_Comandas_
             }
             txtNombre.Text = sb.ToString();
             txtNombre.SelectionStart = cursorPos;
-
         }
 
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
+        }
+
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
+        }
     }
 }

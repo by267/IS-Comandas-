@@ -87,9 +87,16 @@ namespace IS_Comandas_.Gerente.Formularios
         }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            // Validar si la tecla presionada es una letra o un espacio.
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && (e.KeyChar != ' '))
             {
+                // Cancelar la pulsación de la tecla.
                 e.Handled = true;
+            }
+            // Convertir la primera letra a mayúscula.
+            if (txtNombre.SelectionStart == 0 && char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
             }
         }
     }

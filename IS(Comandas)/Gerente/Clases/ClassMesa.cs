@@ -9,6 +9,6 @@ namespace IS_Comandas_.Gerente.Clases
     internal class ClassMesa
     {
         public int Id { get; set; }
-        public int Numero { get; set; }
+        public string estado { get; set; }
     }
 }
