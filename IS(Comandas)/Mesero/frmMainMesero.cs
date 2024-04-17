@@ -29,7 +29,7 @@ namespace IS_Comandas_
             Form1 frm = new Form1();
             frm.Show();
 
-            this.Hide();
+            this.Close();
         }
 
         private void btnAddComanda_Click(object sender, EventArgs e)
@@ -37,6 +37,20 @@ namespace IS_Comandas_
             frmAddComanda frm = new frmAddComanda();
             frm.Show();
 
+            this.Hide();
+        }
+
+        private void btnEliminarComanda_Click(object sender, EventArgs e)
+        {
+            frmDelComanda frm = new frmDelComanda();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnModificarComanda_Click(object sender, EventArgs e)
+        {
+            frmModComanda frm = new frmModComanda();
+            frm.Show();
             this.Hide();
         }
     }

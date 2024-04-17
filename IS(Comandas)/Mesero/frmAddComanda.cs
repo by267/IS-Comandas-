@@ -16,5 +16,12 @@ namespace IS_Comandas_.Mesero
         {
             InitializeComponent();
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            frmMainMesero frm = new frmMainMesero();
+            frm.Show();
+            this.Close();
+        }
     }
 }

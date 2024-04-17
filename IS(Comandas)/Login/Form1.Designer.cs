@@ -37,10 +37,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblPuesto = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.lblPuesto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +112,6 @@
             this.txtPass.SelectedText = "";
             this.txtPass.Size = new System.Drawing.Size(200, 41);
             this.txtPass.TabIndex = 4;
-//            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             this.txtPass.Click += new System.EventHandler(this.txtPass_Click);
             // 
             // label2
@@ -135,7 +134,7 @@
             this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogin.FillColor = System.Drawing.Color.DarkOrchid;
+            this.btnLogin.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnLogin.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(151, 533);
@@ -162,6 +161,15 @@
             this.guna2CustomGradientPanel1.ShadowDecoration.Enabled = true;
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(500, 672);
             this.guna2CustomGradientPanel1.TabIndex = 6;
+            // 
+            // lblPuesto
+            // 
+            this.lblPuesto.AutoSize = true;
+            this.lblPuesto.Location = new System.Drawing.Point(232, 473);
+            this.lblPuesto.Name = "lblPuesto";
+            this.lblPuesto.Size = new System.Drawing.Size(35, 13);
+            this.lblPuesto.TabIndex = 6;
+            this.lblPuesto.Text = "label3";
             // 
             // guna2BorderlessForm1
             // 
@@ -203,15 +211,6 @@
             this.guna2ImageButton2.Size = new System.Drawing.Size(64, 64);
             this.guna2ImageButton2.TabIndex = 8;
             this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
-            // 
-            // lblPuesto
-            // 
-            this.lblPuesto.AutoSize = true;
-            this.lblPuesto.Location = new System.Drawing.Point(232, 473);
-            this.lblPuesto.Name = "lblPuesto";
-            this.lblPuesto.Size = new System.Drawing.Size(35, 13);
-            this.lblPuesto.TabIndex = 6;
-            this.lblPuesto.Text = "label3";
             // 
             // Form1
             // 

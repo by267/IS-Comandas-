@@ -42,11 +42,14 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnModificarComanda = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnEliminarComanda = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -122,10 +125,10 @@
             this.btnActivarMesa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnActivarMesa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnActivarMesa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnActivarMesa.FillColor = System.Drawing.Color.DarkOrchid;
-            this.btnActivarMesa.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivarMesa.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnActivarMesa.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnActivarMesa.ForeColor = System.Drawing.Color.White;
-            this.btnActivarMesa.Location = new System.Drawing.Point(399, 32);
+            this.btnActivarMesa.Location = new System.Drawing.Point(463, 25);
             this.btnActivarMesa.Name = "btnActivarMesa";
             this.btnActivarMesa.Size = new System.Drawing.Size(400, 100);
             this.btnActivarMesa.TabIndex = 9;
@@ -140,10 +143,10 @@
             this.btnAddComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddComanda.FillColor = System.Drawing.Color.DarkOrchid;
-            this.btnAddComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddComanda.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnAddComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnAddComanda.ForeColor = System.Drawing.Color.White;
-            this.btnAddComanda.Location = new System.Drawing.Point(399, 212);
+            this.btnAddComanda.Location = new System.Drawing.Point(463, 205);
             this.btnAddComanda.Name = "btnAddComanda";
             this.btnAddComanda.Size = new System.Drawing.Size(400, 100);
             this.btnAddComanda.TabIndex = 10;
@@ -153,7 +156,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(293, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(357, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,7 +166,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(293, 212);
+            this.pictureBox2.Location = new System.Drawing.Point(357, 205);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 100);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -177,6 +180,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel1.BorderRadius = 25;
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox4);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnEliminarComanda);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox3);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnModificarComanda);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox2);
@@ -193,7 +198,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(293, 387);
+            this.pictureBox3.Location = new System.Drawing.Point(357, 385);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 100);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,14 +213,43 @@
             this.btnModificarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnModificarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnModificarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnModificarComanda.FillColor = System.Drawing.Color.DarkOrchid;
-            this.btnModificarComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarComanda.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnModificarComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnModificarComanda.ForeColor = System.Drawing.Color.White;
-            this.btnModificarComanda.Location = new System.Drawing.Point(399, 387);
+            this.btnModificarComanda.Location = new System.Drawing.Point(463, 385);
             this.btnModificarComanda.Name = "btnModificarComanda";
             this.btnModificarComanda.Size = new System.Drawing.Size(400, 100);
             this.btnModificarComanda.TabIndex = 15;
             this.btnModificarComanda.Text = "Modificar comanda";
+            this.btnModificarComanda.Click += new System.EventHandler(this.btnModificarComanda_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(357, 565);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 18;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btnEliminarComanda
+            // 
+            this.btnEliminarComanda.BorderRadius = 10;
+            this.btnEliminarComanda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarComanda.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEliminarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEliminarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEliminarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEliminarComanda.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnEliminarComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
+            this.btnEliminarComanda.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarComanda.Location = new System.Drawing.Point(463, 565);
+            this.btnEliminarComanda.Name = "btnEliminarComanda";
+            this.btnEliminarComanda.Size = new System.Drawing.Size(400, 100);
+            this.btnEliminarComanda.TabIndex = 17;
+            this.btnEliminarComanda.Text = "Eliminar comanda";
+            this.btnEliminarComanda.Click += new System.EventHandler(this.btnEliminarComanda_Click);
             // 
             // frmMainMesero
             // 
@@ -237,6 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +290,7 @@
         private Guna.UI2.WinForms.Guna2Button btnActivarMesa;
         private Guna.UI2.WinForms.Guna2Button btnModificarComanda;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private Guna.UI2.WinForms.Guna2Button btnEliminarComanda;
     }
 }
