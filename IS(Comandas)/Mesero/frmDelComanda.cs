@@ -92,7 +92,7 @@ namespace IS_Comandas_.Mesero
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text != "")
+            if (txtNombre.Text != "") //perro
             {
                 txtNombre.Text = Nombre;
                 hab();
