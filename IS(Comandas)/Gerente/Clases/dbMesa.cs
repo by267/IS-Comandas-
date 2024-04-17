@@ -19,7 +19,7 @@ namespace IS_Comandas_.Gerente.Clases
         public dbMesa()
         {
             conexion = new MySqlConnection();
-            strConexion = "Server=localhost;UserId=root;Password=123456;DataBase=comandas";
+            strConexion = "Server=localhost;UserId=root;Password=admin;DataBase=comandas";
             conexion.ConnectionString = strConexion;
             comando = new MySqlCommand();
             adaptador = new MySqlDataAdapter();
@@ -102,6 +102,42 @@ namespace IS_Comandas_.Gerente.Clases
             comando.CommandText = sqlConsulta;
             comando.ExecuteNonQuery();
             this.cerrar();
+        }
+        public void activarMesa(ClassMesa obj)
+        {
+            String sqlConsulta = "update mesas set estado = 'on' where idmesas = @idmesas;";
+            comando.Parameters.Add("@idmesas", MySqlDbType.Int64).Value = obj.Id;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
+        public DataTable ConsultarE(String tabla)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "select * from mesas where estado= 'off'";
+
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
+        }
+        public DataTable ConsultarO(String tabla)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "select * from mesas where estado= 'on'";
+
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
         }
     }
 }

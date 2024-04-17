@@ -20,7 +20,7 @@ namespace IS_Comandas_.Gerente.Clases
         public dbMenu()
         {
             conexion = new MySqlConnection();
-            strConexion = "Server=localhost;UserId=root;Password=123456;DataBase=comandas";
+            strConexion = "Server=localhost;UserId=root;Password=admin;DataBase=comandas";
             conexion.ConnectionString = strConexion;
             comando = new MySqlCommand();
             adaptador = new MySqlDataAdapter();
@@ -146,5 +146,20 @@ namespace IS_Comandas_.Gerente.Clases
             
           
         }
+        public DataTable ConsultarP(ClassMenu obj)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "select nombre, precio from menu where nombre = @nombre";
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = obj.Nombre;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
+        }
     }
+
 }

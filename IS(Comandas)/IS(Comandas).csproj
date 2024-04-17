@@ -263,6 +263,8 @@
     <Compile Include="Gerente\Formularios\frmMesa.Designer.cs">
       <DependentUpon>frmMesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mesero\Clases\clasecomanda.cs" />
+    <Compile Include="Mesero\Clases\dbcomandas.cs" />
     <Compile Include="Mesero\frmActivarMesa.cs">
       <SubType>Form</SubType>
     </Compile>

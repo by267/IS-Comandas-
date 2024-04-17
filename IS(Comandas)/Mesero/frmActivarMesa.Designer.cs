@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +109,7 @@
             this.btnAceptar.Size = new System.Drawing.Size(130, 45);
             this.btnAceptar.TabIndex = 14;
             this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnVolver
             // 
@@ -131,6 +133,10 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmActivarMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +148,7 @@
             this.Name = "frmActivarMesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmActivarMesa";
+            this.Load += new System.EventHandler(this.frmActivarMesa_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -156,5 +163,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAceptar;
         private Guna.UI2.WinForms.Guna2Button btnVolver;
         private Guna.UI2.WinForms.Guna2ComboBox cmbMesa;
+        private System.Windows.Forms.Timer timer1;
     }
 }
