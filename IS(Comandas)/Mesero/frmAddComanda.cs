@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IS_Comandas_.Gerente.Clases;
 using MySql.Data.MySqlClient;
 using IS_Comandas_.Mesero.Clases;
 
@@ -31,9 +30,16 @@ namespace IS_Comandas_.Mesero
             cmbMesa.DisplayMember = "idmesas";
             cmbMesa.ValueMember = "idmesas";
         }
+        private void act()
+        {
+            txtSearch.Enabled = true;
+            txtCantidad.Enabled = true;
+            dgvDatos.Enabled = true;
+            btnAgregar.Enabled = true;
+        }
         private void datos()
         {
-            MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=comandas; Uid=root; pwd=admin;");
+            MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=comandas; Uid=root; pwd=123456;");
             MySqlCommand actualizargrid = new MySqlCommand("select * from menu where Nombre like('" + txtSearch.Text + "%')", conectar);
             MySqlDataAdapter adaptador = new MySqlDataAdapter(actualizargrid);
             DataTable tabla = new DataTable();
@@ -137,6 +143,12 @@ namespace IS_Comandas_.Mesero
                 label9.Text = datos.Rows[0]["precio"].ToString();
             }
 
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            act();
+            cmbMesa.Enabled = false;
         }
     }
 }
