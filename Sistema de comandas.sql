@@ -40,6 +40,33 @@ INSERT INTO `categorias` VALUES (1,'Bebidas'),(3,'Comida');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `comandas`
+--
+
+DROP TABLE IF EXISTS `comandas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comandas` (
+  `idComandas` int NOT NULL AUTO_INCREMENT,
+  `producto` varchar(45) DEFAULT NULL,
+  `precio` float DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `mesa` int DEFAULT NULL,
+  `comentarios` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idComandas`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comandas`
+--
+
+LOCK TABLES `comandas` WRITE;
+/*!40000 ALTER TABLE `comandas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comandas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `empleados`
 --
 
@@ -53,7 +80,7 @@ CREATE TABLE `empleados` (
   `Password` varchar(45) DEFAULT NULL,
   `Puesto` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEmpleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +89,7 @@ CREATE TABLE `empleados` (
 
 LOCK TABLES `empleados` WRITE;
 /*!40000 ALTER TABLE `empleados` DISABLE KEYS */;
-INSERT INTO `empleados` VALUES (5,'Oscar Ivan Perez Brambila','by267','1234','Gerente');
+INSERT INTO `empleados` VALUES (5,'Oscar Ivan Perez Brambila','by267','1234','Gerente'),(6,'Diego Moncada Rios','dimori','1234','Mesero');
 /*!40000 ALTER TABLE `empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +140,7 @@ CREATE TABLE `mesas` (
 
 LOCK TABLES `mesas` WRITE;
 /*!40000 ALTER TABLE `mesas` DISABLE KEYS */;
-INSERT INTO `mesas` VALUES (4,NULL),(5,NULL),(8,NULL),(9,NULL),(11,'off');
+INSERT INTO `mesas` VALUES (4,NULL),(5,NULL),(8,NULL),(9,NULL),(11,'on');
 /*!40000 ALTER TABLE `mesas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -126,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-13 12:07:54
+-- Dump completed on 2024-04-25 20:26:15
