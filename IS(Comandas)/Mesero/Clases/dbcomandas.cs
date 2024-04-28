@@ -21,7 +21,7 @@ namespace IS_Comandas_.Mesero.Clases
         public dbcomandas()
         {
             conexion = new MySqlConnection();
-            strConexion = "Server=localhost;UserId=root;Password=admin;DataBase=comandas";
+            strConexion = "Server=localhost;UserId=root;Password=123456;DataBase=comandas";
             conexion.ConnectionString = strConexion;
             comando = new MySqlCommand();
             adaptador = new MySqlDataAdapter();
@@ -87,6 +87,20 @@ namespace IS_Comandas_.Mesero.Clases
             comando.CommandText = sqlConsulta;
             comando.ExecuteNonQuery();
             this.cerrar();
+        }
+        public DataTable ConsultarCodigoH(clasecomanda obj)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "select  idComandas, producto, precio, cantidad from comandas where mesa = @mesa";
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.mesa;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
         }
 
     }

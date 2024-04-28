@@ -17,7 +17,7 @@ namespace IS_Comandas_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMesero());
+            Application.Run(new frmMainCajero());
         }
     }
 }

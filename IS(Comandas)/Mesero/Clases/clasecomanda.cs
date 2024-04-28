@@ -14,6 +14,7 @@ namespace IS_Comandas_.Mesero.Clases
         public float precio { get; set; }
         public string producto { get; set; }
         public int cantidad { get; set; }
+        public int mesa { get; set; }
         public string comentarios { get; set; }
     }
 }
