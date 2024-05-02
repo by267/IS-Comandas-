@@ -139,5 +139,16 @@ namespace IS_Comandas_.Gerente.Clases
             this.cerrar();
             return datos;
         }
+        public void desactivarMesa(ClassMesa obj)
+        {
+            String sqlConsulta = "update mesas set estado = 'off' where idmesas = @idmesas;";
+            comando.Parameters.Add("@idmesas", MySqlDbType.Int64).Value = obj.Id;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
+
     }
 }

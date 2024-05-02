@@ -283,6 +283,18 @@
     <Compile Include="Mesero\frmDelComanda.Designer.cs">
       <DependentUpon>frmDelComanda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mesero\frmDelComanda2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mesero\frmDelComanda2.Designer.cs">
+      <DependentUpon>frmDelComanda2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mesero\frmDelComanda3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mesero\frmDelComanda3.Designer.cs">
+      <DependentUpon>frmDelComanda3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mesero\frmMainMesero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mesero\frmDelComanda.resx">
       <DependentUpon>frmDelComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mesero\frmDelComanda2.resx">
+      <DependentUpon>frmDelComanda2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mesero\frmDelComanda3.resx">
+      <DependentUpon>frmDelComanda3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mesero\frmMainMesero.resx">
       <DependentUpon>frmMainMesero.cs</DependentUpon>

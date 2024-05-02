@@ -19,8 +19,16 @@ namespace IS_Comandas_.Mesero
         public static string ID;
         public static string Nombre;
         public static string Descripcion;
-        public static string Precioo;
+        public static string Precio;
         public static string Categoria;
+
+        public static string dbProducto;
+        public static float dbPrecio;
+        public static string dbCantidad;
+        public static string dbNoComanda;
+        public static string dbComentarios;
+        public static int dbMesa;
+
         private void cargarCombo()
         {
             cmbMesa.Text = "Selecciona una opcion";
@@ -34,8 +42,33 @@ namespace IS_Comandas_.Mesero
         {
             txtSearch.Enabled = true;
             txtCantidad.Enabled = true;
+            txtComentarios.Enabled = true;
+            txtNoComanda.Enabled = true;
             dgvDatos.Enabled = true;
             btnAgregar.Enabled = true;
+        }
+        private void Uhab()
+        {
+
+            txtSearch.Enabled = false;
+            txtCantidad.Enabled = false;
+            txtComentarios.Enabled = false;
+            txtNoComanda.Enabled = false;
+            dgvDatos.Enabled = false;
+            btnAgregar.Enabled = false;
+            cmbMesa.Enabled = true;
+
+
+            dgvDatos.DataSource = null;
+            dgvComanda.Rows.Clear();
+            txtSearch.Text = null;
+            txtCantidad.Text = null;
+            txtComentarios.Text = null;
+            txtNoComanda.Text = null;
+            cmbMesa.DataSource = null;
+            cmbMesa.Text = null;
+
+
         }
         private void datos()
         {
@@ -78,7 +111,7 @@ namespace IS_Comandas_.Mesero
             ID = dgvDatos.Rows[e.RowIndex].Cells["idMenu"].Value.ToString();
             Nombre = dgvDatos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
             Descripcion = dgvDatos.Rows[e.RowIndex].Cells["Descripcion"].Value.ToString();
-            Precioo = dgvDatos.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+            Precio = dgvDatos.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
             Categoria = dgvDatos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
         }
 
@@ -97,58 +130,62 @@ namespace IS_Comandas_.Mesero
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            cargarproducto();
+            dbProducto = Nombre;
+            dbPrecio = float.Parse(Precio);
+            dbCantidad = txtCantidad.Text;
+            dbNoComanda = txtNoComanda.Text;
+            dbComentarios = txtComentarios.Text;
+            dbMesa = int.Parse( cmbMesa.Text);
 
-
-            /* dbcomandas database = new dbcomandas();
-            clasecomanda obj = new clasecomanda();
-            obj.producto = txtNombre.Text;
-            obj.precio = txtUsuario.Text;
-            obj.cantidad = cmbPuesto.Text;
-            obj.comentarios = txtPass.Text;
-            asd = cmbPuesto.Text;
-
-            DataTable datos = new DataTable();
-            datos = database.ConsultarCodigoH(obj);
-            if (datos.Rows.Count > 0)
+            //cargarproducto();
+            if(txtCantidad.Text == "" || txtComentarios.Text == "" || txtNoComanda.Text == "" || txtSearch.Text == "")
             {
-                MessageBox.Show("El empleado ya existe", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (txtNombre.Text != "" && txtUsuario.Text != "" && txtPass.Text != "" && cmbPuesto.Text != "")
-                {
-                    database.Agregar(obj);
-                    MessageBox.Show("El empleado se agrego con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            } */
+                dgvComand();
+                meterDB();
+            }
         }
-        private void cargarproducto()
+        private void dgvComand()
         {
-            dbMenu dbe = new dbMenu();
-            ClassMenu obj = new ClassMenu();
+            int n = dgvComanda.Rows.Add();
+
+            dgvComanda.Rows[n].Cells[0].Value = dbProducto;
+            dgvComanda.Rows[n].Cells[1].Value = dbPrecio;
+            dgvComanda.Rows[n].Cells[2].Value = dbCantidad;
+
+        }
+
+        private void meterDB()
+        {
+            dbcomandas database = new dbcomandas();
+            clasecomanda obj = new clasecomanda();
             DataTable datos = new DataTable();
 
-            obj.Nombre = txtSearch.Text;
-            datos = dbe.ConsultarP(obj);
-                if (datos.Rows.Count > 0)
-            {
-                label8.Text = datos.Rows[0]["nombre"].ToString();
-                label9.Text = datos.Rows[0]["precio"].ToString();
-            }
+            //obj. = int.Parse(txtSearch.Text);
+            obj.producto = dbProducto;
+            obj.precio = dbPrecio;
+            obj.cantidad = int.Parse(dbCantidad);
+            obj.noComanda = dbNoComanda;
+            obj.comentarios = dbComentarios;
+            obj.mesa = dbMesa;
 
+            //Uhab();
+            database.Agregar(obj);
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             act();
             cmbMesa.Enabled = false;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("La icomanda se creo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Uhab();
         }
     }
 }

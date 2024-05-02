@@ -42,7 +42,7 @@ namespace IS_Comandas_
 
         private void btnEliminarComanda_Click(object sender, EventArgs e)
         {
-            frmDelComanda frm = new frmDelComanda();
+            frmDelComanda3 frm = new frmDelComanda3();
             frm.Show();
             this.Hide();
         }

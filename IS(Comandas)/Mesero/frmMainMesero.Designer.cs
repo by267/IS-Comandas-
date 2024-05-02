@@ -40,16 +40,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnModificarComanda = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnEliminarComanda = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnModificarComanda = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -195,34 +195,6 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1160, 700);
             this.guna2CustomGradientPanel1.TabIndex = 3;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(357, 385);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnModificarComanda
-            // 
-            this.btnModificarComanda.BorderRadius = 10;
-            this.btnModificarComanda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificarComanda.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnModificarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnModificarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnModificarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnModificarComanda.FillColor = System.Drawing.Color.MediumOrchid;
-            this.btnModificarComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
-            this.btnModificarComanda.ForeColor = System.Drawing.Color.White;
-            this.btnModificarComanda.Location = new System.Drawing.Point(463, 385);
-            this.btnModificarComanda.Name = "btnModificarComanda";
-            this.btnModificarComanda.Size = new System.Drawing.Size(400, 100);
-            this.btnModificarComanda.TabIndex = 15;
-            this.btnModificarComanda.Text = "Modificar comanda";
-            this.btnModificarComanda.Click += new System.EventHandler(this.btnModificarComanda_Click);
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -251,6 +223,35 @@
             this.btnEliminarComanda.Text = "Eliminar comanda";
             this.btnEliminarComanda.Click += new System.EventHandler(this.btnEliminarComanda_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(357, 385);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnModificarComanda
+            // 
+            this.btnModificarComanda.BorderRadius = 10;
+            this.btnModificarComanda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarComanda.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnModificarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnModificarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnModificarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnModificarComanda.Enabled = false;
+            this.btnModificarComanda.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnModificarComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
+            this.btnModificarComanda.ForeColor = System.Drawing.Color.White;
+            this.btnModificarComanda.Location = new System.Drawing.Point(463, 385);
+            this.btnModificarComanda.Name = "btnModificarComanda";
+            this.btnModificarComanda.Size = new System.Drawing.Size(400, 100);
+            this.btnModificarComanda.TabIndex = 15;
+            this.btnModificarComanda.Text = "Modificar comanda";
+            this.btnModificarComanda.Click += new System.EventHandler(this.btnModificarComanda_Click);
+            // 
             // frmMainMesero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,8 +271,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

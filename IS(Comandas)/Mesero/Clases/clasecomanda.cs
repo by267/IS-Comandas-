@@ -16,5 +16,6 @@ namespace IS_Comandas_.Mesero.Clases
         public int cantidad { get; set; }
         public int mesa { get; set; }
         public string comentarios { get; set; }
+        public string noComanda { get; set; }
     }
 }

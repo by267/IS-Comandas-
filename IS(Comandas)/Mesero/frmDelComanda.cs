@@ -16,7 +16,7 @@ namespace IS_Comandas_.Mesero
 {
     public partial class frmDelComanda : Form
     {
-        public static string Nombre;
+        public static string Mesa;
         public frmDelComanda()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace IS_Comandas_.Mesero
         }
         private void datos()
         {
-            MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=comandas; Uid=root; pwd=admin;");
+            MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=comandas; Uid=root; pwd=123456;");
             MySqlCommand actualizargrid = new MySqlCommand("select * from comandas where producto like('" + txtNombre.Text + "%')", conectar);
             MySqlDataAdapter adaptador = new MySqlDataAdapter(actualizargrid);
             DataTable tabla = new DataTable();
@@ -75,26 +75,27 @@ namespace IS_Comandas_.Mesero
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            /*if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
             else
             {
                 datos();
-            }
+            }*/
+            datos();
         }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Nombre = dgvDatos.Rows[e.RowIndex].Cells["producto"].Value.ToString();
+            Mesa = dgvDatos.Rows[e.RowIndex].Cells["mesa"].Value.ToString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text != "") //perro
             {
-                txtNombre.Text = Nombre;
+                txtNombre.Text = Mesa;
                 hab();
             }
             else

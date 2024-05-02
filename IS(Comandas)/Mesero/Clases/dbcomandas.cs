@@ -54,11 +54,13 @@ namespace IS_Comandas_.Mesero.Clases
         }
         public void Agregar(clasecomanda obj)
         {
-            String sqlConsulta = "insert into comandas (producto, precio, cantidad, comentarios) values(@producto, @precio, @cantidad, @comentarios)";
+            String sqlConsulta = "insert into comandas (producto, precio, cantidad, mesa, comentarios, noComanda) values(@producto, @precio, @cantidad, @mesa, @comentarios, @noComanda)";
             comando.Parameters.Clear();
             comando.Parameters.Add("@producto", MySqlDbType.VarChar).Value = obj.producto;
             comando.Parameters.Add("@precio", MySqlDbType.Float).Value = obj.precio;
             comando.Parameters.Add("@cantidad", MySqlDbType.Int64).Value = obj.cantidad;
+            comando.Parameters.Add("@noComanda", MySqlDbType.Float).Value = obj.noComanda;
+            comando.Parameters.Add("@mesa", MySqlDbType.Int64).Value = obj.mesa;
             comando.Parameters.Add("@comentarios", MySqlDbType.VarChar).Value = obj.comentarios;
             this.abrir();
             comando.Connection = conexion;
@@ -102,6 +104,25 @@ namespace IS_Comandas_.Mesero.Clases
             this.cerrar();
             return datos;
         }
-
+        public void activarMesa(ClassMesa obj)
+        {
+            String sqlConsulta = "update mesas set estado = 'on' where idmesas = @idmesas;";
+            comando.Parameters.Add("@idmesas", MySqlDbType.Int64).Value = obj.Id;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
+        public void EliminarE(clasecomanda obj)
+        {
+            String sqlConsulta = "delete from comandas where mesa = @mesa";
+            comando.Parameters.Add("@mesa", MySqlDbType.Int64).Value = obj.mesa;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
     }
 }
