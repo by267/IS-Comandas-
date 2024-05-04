@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cajero\ticket.cs" />
     <Compile Include="Gerente\Clases\ClassCategoria.cs" />
     <Compile Include="Gerente\Clases\ClassMenu.cs" />
     <Compile Include="Gerente\Clases\ClassMesa.cs" />

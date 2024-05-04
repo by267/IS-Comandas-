@@ -53,22 +53,14 @@ namespace IS_Comandas_
         {
             cargarDatos();
 
-            /*dbcomandas database = new dbcomandas();
+            dbcomandas database = new dbcomandas();
             clasecomanda obj = new clasecomanda();
-            
-            if (cmbMesa.Text != "")
-            {
-                obj.mesa = (int)cmbMesa.SelectedValue;
+            DataTable datos = new DataTable();
+            obj.mesa = int.Parse(cmbMesa.SelectedValue.ToString());
+            datos = database.sumaTotal(obj);
+            lblSubtotal.Text = datos.Rows[0]["subtotal"].ToString();
 
-                //tCombo.Start();
-                DataTable datos = new DataTable();
-                database.ConsultarCodigoH(obj);
-                dgvDatos.DataSource = datos;
-            }
-            else MessageBox.Show("Falto capturar informacion");*/
-
-            
-
+            txtPropina.Enabled = true;
         }
 
         private void frmMainCajero_Load(object sender, EventArgs e)
@@ -83,6 +75,17 @@ namespace IS_Comandas_
             Form1 frm = new Form1();
             frm.Show();
             this.Hide();
+        }
+
+        private void btnAcptPropina_Click(object sender, EventArgs e)
+        {
+            float subtotal = float.Parse(lblSubtotal.Text);
+            int propina = int.Parse(txtPropina.Text);
+
+            float porPropina = subtotal / propina;
+            float total = subtotal + porPropina;
+
+            lblTotal.Text = total.ToString();
         }
     }
 }
