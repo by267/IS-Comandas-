@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: comandas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,8 +53,9 @@ CREATE TABLE `comandas` (
   `cantidad` int DEFAULT NULL,
   `mesa` int DEFAULT NULL,
   `comentarios` varchar(45) DEFAULT NULL,
+  `noComanda` int DEFAULT NULL,
   PRIMARY KEY (`idComandas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE `comandas` (
 
 LOCK TABLES `comandas` WRITE;
 /*!40000 ALTER TABLE `comandas` DISABLE KEYS */;
+INSERT INTO `comandas` VALUES (2,'Hamburguesa',99.8,1,0,'asd',23);
 /*!40000 ALTER TABLE `comandas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +82,7 @@ CREATE TABLE `empleados` (
   `Password` varchar(45) DEFAULT NULL,
   `Puesto` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEmpleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +91,7 @@ CREATE TABLE `empleados` (
 
 LOCK TABLES `empleados` WRITE;
 /*!40000 ALTER TABLE `empleados` DISABLE KEYS */;
-INSERT INTO `empleados` VALUES (5,'Oscar Ivan Perez Brambila','by267','1234','Gerente'),(6,'Diego Moncada Rios','dimori','1234','Mesero');
+INSERT INTO `empleados` VALUES (5,'Oscar Ivan Perez Brambila','by267','1234','Gerente'),(6,'Diego Moncada Rios','dimori','1234','Mesero'),(7,'Soe Lizarraga','soe','1234','Cajero');
 /*!40000 ALTER TABLE `empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +118,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (3,'Hamburguesa','Mediana',99.8,'Comida');
+INSERT INTO `menu` VALUES (3,'Hamburguesa','Mediana',99.8,'Comida'),(4,'Papas','Chicas',55.9,'Comida');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +142,7 @@ CREATE TABLE `mesas` (
 
 LOCK TABLES `mesas` WRITE;
 /*!40000 ALTER TABLE `mesas` DISABLE KEYS */;
-INSERT INTO `mesas` VALUES (4,NULL),(5,NULL),(8,NULL),(9,NULL),(11,'on');
+INSERT INTO `mesas` VALUES (4,'off'),(5,'off'),(8,'off'),(9,'off'),(11,'on');
 /*!40000 ALTER TABLE `mesas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +155,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-25 20:26:15
+-- Dump completed on 2024-05-03 20:30:58
