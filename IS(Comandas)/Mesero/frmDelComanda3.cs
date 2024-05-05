@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace IS_Comandas_.Mesero
 {
     public partial class frmDelComanda3 : Form
@@ -32,7 +33,7 @@ namespace IS_Comandas_.Mesero
             dbMesa database = new dbMesa();
             ClassMesa obj = new ClassMesa();
             obj.Id = int.Parse(cmbMesa.SelectedValue.ToString());
-            database.activarMesa(obj);
+            database.desactivarMesa(obj);
             //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnEliminar_Click(object sender, EventArgs e)
