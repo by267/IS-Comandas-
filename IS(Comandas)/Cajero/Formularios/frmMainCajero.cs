@@ -11,13 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+using IS_Comandas_.Cajero.Formularios;
+using static IS_Comandas_.Cajero.Formularios.frmCobro;
 
 
 namespace IS_Comandas_
 {
     public partial class frmMainCajero : Form
     {
-
+        List<ticket> listaDatos = new List<ticket>();
         public frmMainCajero()
         {
             InitializeComponent();
@@ -47,12 +50,15 @@ namespace IS_Comandas_
             frm.Show();
 
             this.Hide();
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //desMesa();
-            List<ticket> listaDatos = ObtenerDatosDataGridViewALista(dgvDatos);
+            frmCobro frm = new frmCobro();
+            //frm.Show();
+            registrar();
+            
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
@@ -73,6 +79,7 @@ namespace IS_Comandas_
             cargarCombo();
             //cargarDatos();
 
+            
         }
 
         private void btniCerrar_Click_1(object sender, EventArgs e)
@@ -91,6 +98,9 @@ namespace IS_Comandas_
             float total = subtotal + porPropina;
 
             lblTotal.Text = total.ToString();
+
+            /*DatosCompartidos.total = float.Parse(lblTotal.Text);
+            DatosCompartidos.mesa = cmbMesa.Text;*/
         }
 
         private void desMesa()
@@ -101,28 +111,26 @@ namespace IS_Comandas_
             database.desactivarMesa(obj);
             //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private List<ticket> ObtenerDatosDataGridViewALista(DataGridView dataGridView)
-        {
-            List<ticket> listaDatos = new List<ticket>();
 
-            foreach (DataGridViewRow fila in dataGridView.Rows)
+        private void lista()
+        {
+            foreach (DataGridViewRow fila in dgvDatos.Rows)
             {
+                // Check if the row is not empty
+                if (fila.IsNewRow) continue;
+
+                // Try to get the cell values
                 try
                 {
-                    // Check if the cell value is not null
-                    if (fila.Cells["Producto"].Value != null)
-                    {
-                        string nombre = fila.Cells["Producto"].Value.ToString();
+                    // Get the values from the corresponding cells
+                    string nombre = fila.Cells["Producto"].Value.ToString();
 
-                        // Create a new ticket object
-                        ticket dato = new ticket();
-                        dato.Producto = nombre;
+                    // Create a new ticket object
+                    ticket dato = new ticket();
+                    dato.Producto = nombre;
 
-                        // Add the object to the list
-                        listaDatos.Add(dato);
-                        MessageBox.Show("lista metida hasta el fondo");
-
-                    }
+                    // Add the ticket object to the list
+                    listaDatos.Add(dato);
                 }
                 catch (NullReferenceException ex)
                 {
@@ -130,8 +138,28 @@ namespace IS_Comandas_
                     //Console.WriteLine("Error en la fila " + fila.Index + ": " + ex.Message);
                 }
             }
+        }
+        public void registrar()
+        {
+            //desMesa();
+            lista();
 
-            return listaDatos;
+            // Convert the list data to text
+            string text = "";
+            foreach (ticket ticket in listaDatos)
+            {
+                text += $" {ticket.Producto},";
+            }
+
+            dbTicket database = new dbTicket();
+            ticket obj = new ticket();
+            DataTable datos = new DataTable();
+
+            obj.Producto = text;
+            obj.Total = float.Parse(lblTotal.Text);
+
+            database.Agregar(obj);
+            MessageBox.Show("Tucket creado");
         }
 
 

@@ -109,7 +109,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cajero\ticket.cs" />
+    <Compile Include="Cajero\Clases\dbTicket.cs" />
+    <Compile Include="Cajero\Clases\ticket.cs" />
+    <Compile Include="Cajero\Formularios\frmCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cajero\Formularios\frmCobro.Designer.cs">
+      <DependentUpon>frmCobro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gerente\Clases\ClassCategoria.cs" />
     <Compile Include="Gerente\Clases\ClassMenu.cs" />
     <Compile Include="Gerente\Clases\ClassMesa.cs" />
@@ -204,10 +211,10 @@
     <Compile Include="Gerente\Formularios\frmAddMesa.Designer.cs">
       <DependentUpon>frmAddMesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cajero\frmMainCajero.cs">
+    <Compile Include="Cajero\Formularios\frmMainCajero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cajero\frmMainCajero.Designer.cs">
+    <Compile Include="Cajero\Formularios\frmMainCajero.Designer.cs">
       <DependentUpon>frmMainCajero.cs</DependentUpon>
     </Compile>
     <Compile Include="Gerente\Formularios\frmDelCategoria.cs">
@@ -266,52 +273,55 @@
     </Compile>
     <Compile Include="Mesero\Clases\clasecomanda.cs" />
     <Compile Include="Mesero\Clases\dbcomandas.cs" />
-    <Compile Include="Mesero\frmActivarMesa.cs">
+    <Compile Include="Mesero\Formularios\frmActivarMesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmActivarMesa.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmActivarMesa.Designer.cs">
       <DependentUpon>frmActivarMesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesero\frmAddComanda.cs">
+    <Compile Include="Mesero\Formularios\frmAddComanda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmAddComanda.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmAddComanda.Designer.cs">
       <DependentUpon>frmAddComanda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesero\frmDelComanda.cs">
+    <Compile Include="Mesero\Formularios\frmDelComanda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmDelComanda.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmDelComanda.Designer.cs">
       <DependentUpon>frmDelComanda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesero\frmDelComanda2.cs">
+    <Compile Include="Mesero\Formularios\frmDelComanda2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmDelComanda2.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmDelComanda2.Designer.cs">
       <DependentUpon>frmDelComanda2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesero\frmDelComanda3.cs">
+    <Compile Include="Mesero\Formularios\frmDelComanda3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmDelComanda3.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmDelComanda3.Designer.cs">
       <DependentUpon>frmDelComanda3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesero\frmMainMesero.cs">
+    <Compile Include="Mesero\Formularios\frmMainMesero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmMainMesero.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmMainMesero.Designer.cs">
       <DependentUpon>frmMainMesero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mesero\frmModComanda.cs">
+    <Compile Include="Mesero\Formularios\frmModComanda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mesero\frmModComanda.Designer.cs">
+    <Compile Include="Mesero\Formularios\frmModComanda.Designer.cs">
       <DependentUpon>frmModComanda.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Modelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\Session.cs" />
+    <EmbeddedResource Include="Cajero\Formularios\frmCobro.resx">
+      <DependentUpon>frmCobro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gerente\Formularios\frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,7 +364,7 @@
     <EmbeddedResource Include="Gerente\Formularios\frmAddMesa.resx">
       <DependentUpon>frmAddMesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cajero\frmMainCajero.resx">
+    <EmbeddedResource Include="Cajero\Formularios\frmMainCajero.resx">
       <DependentUpon>frmMainCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gerente\Formularios\frmDelCategoria.resx">
@@ -384,25 +394,25 @@
     <EmbeddedResource Include="Gerente\Formularios\frmMesa.resx">
       <DependentUpon>frmMesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmActivarMesa.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmActivarMesa.resx">
       <DependentUpon>frmActivarMesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmAddComanda.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmAddComanda.resx">
       <DependentUpon>frmAddComanda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmDelComanda.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmDelComanda.resx">
       <DependentUpon>frmDelComanda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmDelComanda2.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmDelComanda2.resx">
       <DependentUpon>frmDelComanda2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmDelComanda3.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmDelComanda3.resx">
       <DependentUpon>frmDelComanda3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmMainMesero.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmMainMesero.resx">
       <DependentUpon>frmMainMesero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mesero\frmModComanda.resx">
+    <EmbeddedResource Include="Mesero\Formularios\frmModComanda.resx">
       <DependentUpon>frmModComanda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
