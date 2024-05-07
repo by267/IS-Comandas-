@@ -18,7 +18,7 @@ namespace IS_Comandas_.Mesero
         {
             InitializeComponent();
         }
-        private void cargarCombo()
+        /*private void cargarCombo()
         {
             cmbMesa.Text = "Selecciona una opcion";
             dbMesa db = new dbMesa();
@@ -26,7 +26,7 @@ namespace IS_Comandas_.Mesero
             cmbMesa.DataSource = db.ConsultarO("idmesas");
             cmbMesa.DisplayMember = "idmesas";
             cmbMesa.ValueMember = "idmesas";
-        }
+        }*/
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
@@ -34,12 +34,12 @@ namespace IS_Comandas_.Mesero
 
         private void frmDelComanda2_Load(object sender, EventArgs e)
         {
-            cargarCombo();
+            //cargarCombo();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            dbcomandas database = new dbcomandas();
+            /*dbcomandas database = new dbcomandas();
             clasecomanda obj = new clasecomanda();
 
             if (cmbMesa.Text == "")
@@ -58,7 +58,7 @@ namespace IS_Comandas_.Mesero
                 MessageBox.Show("El empleado se elimino con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //tCombo.Stop();
-            }
+            }*/
         }
     }
 }

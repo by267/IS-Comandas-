@@ -241,7 +241,6 @@
             this.btnModificarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnModificarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnModificarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnModificarComanda.Enabled = false;
             this.btnModificarComanda.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnModificarComanda.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnModificarComanda.ForeColor = System.Drawing.Color.White;

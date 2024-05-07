@@ -21,18 +21,18 @@ namespace IS_Comandas_.Mesero
         }
         private void cargarCombo()
         {
-            cmbMesa.Text = "Selecciona una opcion";
-            dbMesa db = new dbMesa();
+            cmbNoComanda.Text = "Selecciona una opcion";
+            dbcomandas db = new dbcomandas();
 
-            cmbMesa.DataSource = db.ConsultarO("idmesas");
-            cmbMesa.DisplayMember = "idmesas";
-            cmbMesa.ValueMember = "idmesas";
+            cmbNoComanda.DataSource = db.ConsultarO("noComanda");
+            cmbNoComanda.DisplayMember = "noComanda";
+            cmbNoComanda.ValueMember = "noComanda";
         }
         private void desMesa()
         {
             dbMesa database = new dbMesa();
             ClassMesa obj = new ClassMesa();
-            obj.Id = int.Parse(cmbMesa.SelectedValue.ToString());
+            obj.Id = int.Parse(cmbNoComanda.Text);
             database.desactivarMesa(obj);
             //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -41,14 +41,14 @@ namespace IS_Comandas_.Mesero
             dbcomandas database = new dbcomandas();
             clasecomanda obj = new clasecomanda();
 
-            if (cmbMesa.Text == "")
+            if (cmbNoComanda.Text == "")
             {
                 MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else
             {
-                obj.mesa = int.Parse(cmbMesa.Text);
+                obj.noComanda = cmbNoComanda.Text;
 
                 tCombo.Start();
                 DataTable datos = new DataTable();
@@ -62,6 +62,16 @@ namespace IS_Comandas_.Mesero
         private void frmDelComanda3_Load(object sender, EventArgs e)
         {
             cargarCombo();
+        }
+
+        private void tCombo_Tick(object sender, EventArgs e)
+        {
+            cargarCombo();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

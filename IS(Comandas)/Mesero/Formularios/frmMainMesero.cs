@@ -44,7 +44,7 @@ namespace IS_Comandas_
         {
             frmDelComanda3 frm = new frmDelComanda3();
             frm.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void btnModificarComanda_Click(object sender, EventArgs e)

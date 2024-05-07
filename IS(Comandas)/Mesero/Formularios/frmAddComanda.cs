@@ -138,7 +138,7 @@ namespace IS_Comandas_.Mesero
             dbMesa = int.Parse( cmbMesa.Text);
 
             //cargarproducto();
-            if(txtCantidad.Text == "" || txtComentarios.Text == "" || txtNoComanda.Text == "" || txtSearch.Text == "")
+            if(txtCantidad.Text == "" || txtNoComanda.Text == "" || txtSearch.Text == "")
             {
                 MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -147,6 +147,11 @@ namespace IS_Comandas_.Mesero
                 dgvComand();
                 meterDB();
             }
+            txtNoComanda.Enabled = false;
+            txtSearch.Text = null;
+            txtCantidad.Text = null;
+            txtComentarios.Text = null;
+            dgvDatos.DataSource = null;
         }
         private void dgvComand()
         {
@@ -186,6 +191,26 @@ namespace IS_Comandas_.Mesero
         {
             MessageBox.Show("La icomanda se creo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Uhab();
+        }
+
+        private void txtNoComanda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Validar si la tecla presionada es un número o un punto decimal.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Validar si la tecla presionada es un número o un punto decimal.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
         }
     }
 }

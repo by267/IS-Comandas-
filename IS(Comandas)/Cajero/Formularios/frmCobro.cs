@@ -27,7 +27,7 @@ namespace IS_Comandas_.Cajero.Formularios
         public void labelFeria()
         { 
             float dinero = float.Parse(txtIngreso.Text);
-            float feria = dinero - (total);
+            float feria = dinero - total;
             lblCambio.Text = feria.ToString();
         }
         private void btnAceptar_Click(object sender, EventArgs e)

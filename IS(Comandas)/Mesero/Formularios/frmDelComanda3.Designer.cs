@@ -32,13 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelComanda3));
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.cmbMesa = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.tCombo = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbNoComanda = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -47,8 +47,8 @@
             // 
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel1.BorderRadius = 25;
+            this.guna2CustomGradientPanel1.Controls.Add(this.cmbNoComanda);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.cmbMesa);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnEliminar);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnVolver);
@@ -71,23 +71,6 @@
             this.guna2PictureBox2.TabIndex = 50;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
-            // 
-            // cmbMesa
-            // 
-            this.cmbMesa.BackColor = System.Drawing.Color.Transparent;
-            this.cmbMesa.BorderRadius = 5;
-            this.cmbMesa.BorderThickness = 2;
-            this.cmbMesa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbMesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMesa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbMesa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbMesa.Font = new System.Drawing.Font("Leelawadee UI", 12F);
-            this.cmbMesa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbMesa.ItemHeight = 30;
-            this.cmbMesa.Location = new System.Drawing.Point(153, 92);
-            this.cmbMesa.Name = "cmbMesa";
-            this.cmbMesa.Size = new System.Drawing.Size(250, 36);
-            this.cmbMesa.TabIndex = 17;
             // 
             // label1
             // 
@@ -141,6 +124,7 @@
             this.btnVolver.Size = new System.Drawing.Size(130, 45);
             this.btnVolver.TabIndex = 15;
             this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // guna2BorderlessForm1
             // 
@@ -150,6 +134,10 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // tCombo
+            // 
+            this.tCombo.Tick += new System.EventHandler(this.tCombo_Tick);
             // 
             // label2
             // 
@@ -161,6 +149,22 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Eliminar Comanda";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmbNoComanda
+            // 
+            this.cmbNoComanda.BackColor = System.Drawing.Color.Transparent;
+            this.cmbNoComanda.BorderRadius = 5;
+            this.cmbNoComanda.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbNoComanda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNoComanda.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbNoComanda.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbNoComanda.Font = new System.Drawing.Font("Leelawadee UI", 12F);
+            this.cmbNoComanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbNoComanda.ItemHeight = 30;
+            this.cmbNoComanda.Location = new System.Drawing.Point(153, 94);
+            this.cmbNoComanda.Name = "cmbNoComanda";
+            this.cmbNoComanda.Size = new System.Drawing.Size(250, 36);
+            this.cmbNoComanda.TabIndex = 51;
             // 
             // frmDelComanda3
             // 
@@ -185,12 +189,12 @@
 
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbMesa;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
         private Guna.UI2.WinForms.Guna2Button btnVolver;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Timer tCombo;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbNoComanda;
     }
 }
