@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using IS_Comandas_.Mesero.Clases;
+using System.Data.SqlClient;
 
 
 namespace IS_Comandas_.Mesero
 {
     public partial class frmModComanda : Form
     {
+        private SqlConnection connection;
         public static string ID;
         public static string Nombre;
         public static string Descripcion;
@@ -132,6 +134,8 @@ namespace IS_Comandas_.Mesero
         public frmModComanda()
         {
             InitializeComponent();
+            string connectionString = "server=127.0.0.1; database=comandas; Uid=root; pwd=123456;";
+            connection = new SqlConnection(connectionString);
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -143,20 +147,28 @@ namespace IS_Comandas_.Mesero
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Obtiene la fila seleccionada
+            dbcomandas database = new dbcomandas();
+            DataTable datos = new DataTable();
+            clasecomanda obj = new clasecomanda();
+
+            // Obtiene la fila seleccionada en el DataGridView
             DataGridViewRow selectedRow = dgvComanda.SelectedRows[0];
 
             // Verifica si hay una fila seleccionada
             if (selectedRow != null)
             {
-                // Elimina la fila seleccionada
+                obj.Id = (int)selectedRow.Cells["idComandas"].Value;
+
+                database.EliminarD(obj);
+
+                // Actualiza el DataGridView
                 dgvComanda.Rows.Remove(selectedRow);
             }
             else
             {
-                // Muestra un mensaje de error
-                MessageBox.Show("No hay fila seleccionada para eliminar.");
+                MessageBox.Show("Selecciona una fila para eliminar");
             }
+
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
@@ -227,7 +239,7 @@ namespace IS_Comandas_.Mesero
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La icomanda se creo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La icomanda se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Uhab();
         }
 
