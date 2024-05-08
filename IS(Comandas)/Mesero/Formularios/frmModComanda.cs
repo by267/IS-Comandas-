@@ -131,6 +131,14 @@ namespace IS_Comandas_.Mesero
             datos = database.ConsultarCodigoH(obj);
             dgvComanda.DataSource = datos;
         }
+        private void desMesa()
+        {
+            dbMesa database = new dbMesa();
+            ClassMesa obj = new ClassMesa();
+            obj.Id = int.Parse(cmbNoComanda.Text);
+            database.desactivarMesa(obj);
+            //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         public frmModComanda()
         {
             InitializeComponent();
@@ -151,23 +159,32 @@ namespace IS_Comandas_.Mesero
             DataTable datos = new DataTable();
             clasecomanda obj = new clasecomanda();
 
-            // Obtiene la fila seleccionada en el DataGridView
-            DataGridViewRow selectedRow = dgvComanda.SelectedRows[0];
-
-            // Verifica si hay una fila seleccionada
-            if (selectedRow != null)
+            if (dgvComanda.SelectedRows.Count > 0)
             {
-                obj.Id = (int)selectedRow.Cells["idComandas"].Value;
+                DataGridViewRow selectedRow = dgvComanda.SelectedRows[0];
 
-                database.EliminarD(obj);
+                // Verifica si hay una fila seleccionada
+                if (selectedRow != null)
+                {
+                    obj.Id = (int)selectedRow.Cells["idComandas"].Value;
 
-                // Actualiza el DataGridView
-                dgvComanda.Rows.Remove(selectedRow);
+                    database.EliminarD(obj);
+
+                    // Actualiza el DataGridView
+                    dgvComanda.Rows.Remove(selectedRow);
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una fila para eliminar");
+                }
             }
             else
             {
-                MessageBox.Show("Selecciona una fila para eliminar");
+                MessageBox.Show("No hay productos seleccionadas");
             }
+            // Obtiene la fila seleccionada en el DataGridView
+            
+            
 
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
