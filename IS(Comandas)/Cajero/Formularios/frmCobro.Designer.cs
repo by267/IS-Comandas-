@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobro));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblCambio = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIngreso = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCambio = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,26 @@
             this.guna2CustomGradientPanel1.ShadowDecoration.Enabled = true;
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(830, 425);
             this.guna2CustomGradientPanel1.TabIndex = 26;
+            // 
+            // lblCambio
+            // 
+            this.lblCambio.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCambio.Location = new System.Drawing.Point(496, 114);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Size = new System.Drawing.Size(250, 25);
+            this.lblCambio.TabIndex = 54;
+            this.lblCambio.Text = "Aqui va la feria";
+            this.lblCambio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(496, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 25);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Cambio";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
             // 
@@ -149,6 +169,7 @@
             this.txtIngreso.Font = new System.Drawing.Font("Leelawadee UI", 12F);
             this.txtIngreso.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIngreso.Location = new System.Drawing.Point(136, 100);
+            this.txtIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIngreso.Name = "txtIngreso";
             this.txtIngreso.PasswordChar = '\0';
             this.txtIngreso.PlaceholderText = "";
@@ -172,26 +193,7 @@
             this.btnVolver.Size = new System.Drawing.Size(200, 75);
             this.btnVolver.TabIndex = 29;
             this.btnVolver.Text = " Volver";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(496, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 25);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Cambio";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCambio
-            // 
-            this.lblCambio.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCambio.Location = new System.Drawing.Point(496, 114);
-            this.lblCambio.Name = "lblCambio";
-            this.lblCambio.Size = new System.Drawing.Size(250, 25);
-            this.lblCambio.TabIndex = 54;
-            this.lblCambio.Text = "Aqui va la feria";
-            this.lblCambio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // frmCobro
             // 

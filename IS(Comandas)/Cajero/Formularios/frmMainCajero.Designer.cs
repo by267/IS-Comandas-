@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainCajero));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btniCerrar = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnAcptPropina = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPropina = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvDatos = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -48,10 +49,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSeleccionar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.cmbMesa = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbNoComanda = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.btnAcptPropina = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
@@ -132,7 +132,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label7);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnSeleccionar);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2PictureBox7);
-            this.guna2CustomGradientPanel1.Controls.Add(this.cmbMesa);
+            this.guna2CustomGradientPanel1.Controls.Add(this.cmbNoComanda);
             this.guna2CustomGradientPanel1.Controls.Add(this.label4);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(120, 120);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
@@ -140,6 +140,28 @@
             this.guna2CustomGradientPanel1.ShadowDecoration.Enabled = true;
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1160, 700);
             this.guna2CustomGradientPanel1.TabIndex = 20;
+            // 
+            // btnAcptPropina
+            // 
+            this.btnAcptPropina.BackColor = System.Drawing.Color.Transparent;
+            this.btnAcptPropina.BorderRadius = 10;
+            this.btnAcptPropina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAcptPropina.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAcptPropina.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAcptPropina.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAcptPropina.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAcptPropina.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnAcptPropina.Font = new System.Drawing.Font("Leelawadee UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcptPropina.ForeColor = System.Drawing.Color.White;
+            this.btnAcptPropina.Location = new System.Drawing.Point(802, 237);
+            this.btnAcptPropina.Name = "btnAcptPropina";
+            this.btnAcptPropina.ShadowDecoration.BorderRadius = 10;
+            this.btnAcptPropina.ShadowDecoration.Enabled = true;
+            this.btnAcptPropina.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 0, 5);
+            this.btnAcptPropina.Size = new System.Drawing.Size(150, 50);
+            this.btnAcptPropina.TabIndex = 83;
+            this.btnAcptPropina.Text = "Aceptar";
+            this.btnAcptPropina.Click += new System.EventHandler(this.btnAcptPropina_Click);
             // 
             // label8
             // 
@@ -169,36 +191,38 @@
             this.txtPropina.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPropina.Location = new System.Drawing.Point(749, 180);
             this.txtPropina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPropina.MaxLength = 2;
             this.txtPropina.Name = "txtPropina";
             this.txtPropina.PasswordChar = '\0';
             this.txtPropina.PlaceholderText = "";
             this.txtPropina.SelectedText = "";
             this.txtPropina.Size = new System.Drawing.Size(250, 50);
             this.txtPropina.TabIndex = 81;
+            this.txtPropina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPropina_KeyPress);
             // 
             // dgvDatos
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvDatos.ColumnHeadersHeight = 15;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatos.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvDatos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDatos.Location = new System.Drawing.Point(88, 150);
             this.dgvDatos.Name = "dgvDatos";
@@ -236,6 +260,7 @@
             this.btnAceptar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAceptar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAceptar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAceptar.Enabled = false;
             this.btnAceptar.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnAceptar.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
@@ -328,21 +353,21 @@
             this.guna2PictureBox7.TabStop = false;
             this.guna2PictureBox7.UseTransparentBackground = true;
             // 
-            // cmbMesa
+            // cmbNoComanda
             // 
-            this.cmbMesa.BackColor = System.Drawing.Color.Transparent;
-            this.cmbMesa.BorderRadius = 5;
-            this.cmbMesa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbMesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMesa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbMesa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbMesa.Font = new System.Drawing.Font("Leelawadee UI", 12F);
-            this.cmbMesa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbMesa.ItemHeight = 30;
-            this.cmbMesa.Location = new System.Drawing.Point(144, 73);
-            this.cmbMesa.Name = "cmbMesa";
-            this.cmbMesa.Size = new System.Drawing.Size(250, 36);
-            this.cmbMesa.TabIndex = 67;
+            this.cmbNoComanda.BackColor = System.Drawing.Color.Transparent;
+            this.cmbNoComanda.BorderRadius = 5;
+            this.cmbNoComanda.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbNoComanda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNoComanda.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbNoComanda.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbNoComanda.Font = new System.Drawing.Font("Leelawadee UI", 12F);
+            this.cmbNoComanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbNoComanda.ItemHeight = 30;
+            this.cmbNoComanda.Location = new System.Drawing.Point(144, 73);
+            this.cmbNoComanda.Name = "cmbNoComanda";
+            this.cmbNoComanda.Size = new System.Drawing.Size(250, 36);
+            this.cmbNoComanda.TabIndex = 67;
             // 
             // label4
             // 
@@ -363,28 +388,6 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // btnAcptPropina
-            // 
-            this.btnAcptPropina.BackColor = System.Drawing.Color.Transparent;
-            this.btnAcptPropina.BorderRadius = 10;
-            this.btnAcptPropina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAcptPropina.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAcptPropina.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAcptPropina.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAcptPropina.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAcptPropina.FillColor = System.Drawing.Color.MediumOrchid;
-            this.btnAcptPropina.Font = new System.Drawing.Font("Leelawadee UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcptPropina.ForeColor = System.Drawing.Color.White;
-            this.btnAcptPropina.Location = new System.Drawing.Point(802, 237);
-            this.btnAcptPropina.Name = "btnAcptPropina";
-            this.btnAcptPropina.ShadowDecoration.BorderRadius = 10;
-            this.btnAcptPropina.ShadowDecoration.Enabled = true;
-            this.btnAcptPropina.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 0, 5);
-            this.btnAcptPropina.Size = new System.Drawing.Size(150, 50);
-            this.btnAcptPropina.TabIndex = 83;
-            this.btnAcptPropina.Text = "Aceptar";
-            this.btnAcptPropina.Click += new System.EventHandler(this.btnAcptPropina_Click);
             // 
             // frmMainCajero
             // 
@@ -422,7 +425,7 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2Button btnSeleccionar;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox7;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbMesa;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbNoComanda;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label2;

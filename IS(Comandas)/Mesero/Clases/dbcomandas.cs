@@ -127,8 +127,9 @@ namespace IS_Comandas_.Mesero.Clases
         public DataTable sumaTotal(clasecomanda obj)
         {
             DataTable datos = new DataTable();
-            String sqlConsulta = "SELECT ROUND(SUM(precio*cantidad), 3) AS subtotal FROM comandas where mesa = @mesa;"; comando.Parameters.Clear();
-            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.mesa;
+            String sqlConsulta = "SELECT ROUND(SUM(precio*cantidad), 3) AS subtotal FROM comandas where noComanda = @mesa;";
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.noComanda;
             this.abrir();
             comando.Connection = conexion;
             comando.CommandText = sqlConsulta;

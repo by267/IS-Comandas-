@@ -39,11 +39,25 @@ namespace IS_Comandas_.Cajero.Formularios
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            labelFeria();
+            int ingreso = int.Parse(txtIngreso.Text);
+            if(ingreso > total)
+            {
+                labelFeria();
+            }
+            else
+            {
+                MessageBox.Show("No te alcanza, che pobre");
+            }
+            
         }
         private void frmCobro_Load(object sender, EventArgs e)
         {
             //MessageBox.Show(total);
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

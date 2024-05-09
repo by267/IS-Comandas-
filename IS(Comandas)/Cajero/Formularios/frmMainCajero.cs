@@ -21,25 +21,29 @@ namespace IS_Comandas_
     public partial class frmMainCajero : Form
     {
         List<ticket> listaDatos = new List<ticket>();
+        int propina;
+        float subtotal;
+        float porPropina;
+        float total;
         public frmMainCajero()
         {
             InitializeComponent();
         }
         private void cargarCombo()
         {
-            cmbMesa.Text = "Selecciona una opcion";
-            dbMesa db = new dbMesa();
+            cmbNoComanda.Text = "Selecciona una opcion";
+            dbcomandas db = new dbcomandas();
 
-            cmbMesa.DataSource = db.ConsultarO("idmesas");
-            cmbMesa.DisplayMember = "idmesas";
-            cmbMesa.ValueMember = "idmesas";
+            cmbNoComanda.DataSource = db.ConsultarO("noComanda");
+            cmbNoComanda.DisplayMember = "noComanda";
+            cmbNoComanda.ValueMember = "noComanda";
         }
         private void cargarDatos()
         {
             dbcomandas database = new dbcomandas();
             DataTable datos = new DataTable();
             clasecomanda obj = new clasecomanda();
-            obj.mesa = int.Parse(cmbMesa.SelectedValue.ToString());
+            obj.noComanda = cmbNoComanda.SelectedValue.ToString();
             datos = database.ConsultarCodigoH(obj);
             dgvDatos.DataSource = datos;
         }
@@ -58,6 +62,16 @@ namespace IS_Comandas_
             frmCobro frm = new frmCobro();
             //frm.Show();
             registrar();
+
+            txtPropina.Text = null;
+            txtPropina.Enabled = false;
+
+            dgvDatos.DataSource = null;
+            btnAceptar.Enabled = false;
+            btnAcptPropina.Enabled = false;
+
+            lblSubtotal.Text = null;
+            lblTotal.Text = null;
             
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
@@ -67,7 +81,7 @@ namespace IS_Comandas_
             dbcomandas database = new dbcomandas();
             clasecomanda obj = new clasecomanda();
             DataTable datos = new DataTable();
-            obj.mesa = int.Parse(cmbMesa.SelectedValue.ToString());
+            obj.noComanda = cmbNoComanda.SelectedValue.ToString();
             datos = database.sumaTotal(obj);
             lblSubtotal.Text = datos.Rows[0]["subtotal"].ToString();
 
@@ -91,23 +105,32 @@ namespace IS_Comandas_
 
         private void btnAcptPropina_Click(object sender, EventArgs e)
         {
-            float subtotal = float.Parse(lblSubtotal.Text);
-            int propina = int.Parse(txtPropina.Text);
+            if(txtPropina.Text == "")
+            {
+                MessageBox.Show("Ingrese un porcentaje de propina");
+            }
+            else
+            {
+                subtotal = float.Parse(lblSubtotal.Text);
+                propina = int.Parse(txtPropina.Text);
 
-            float porPropina = subtotal / 100 * propina;
-            float total = subtotal + porPropina;
+                porPropina = subtotal / 100 * propina;
+                total = subtotal + porPropina;
 
-            lblTotal.Text = total.ToString();
+                lblTotal.Text = total.ToString();
 
-            /*DatosCompartidos.total = float.Parse(lblTotal.Text);
-            DatosCompartidos.mesa = cmbMesa.Text;*/
+                DatosCompartidos.total = total;
+                DatosCompartidos.mesa = cmbNoComanda.Text;
+
+                btnAceptar.Enabled = true;
+            }
         }
 
         private void desMesa()
         {
             dbMesa database = new dbMesa();
             ClassMesa obj = new ClassMesa();
-            obj.Id = int.Parse(cmbMesa.SelectedValue.ToString());
+            obj.Id = int.Parse(cmbNoComanda.SelectedValue.ToString());
             database.desactivarMesa(obj);
             //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -156,13 +179,20 @@ namespace IS_Comandas_
             DataTable datos = new DataTable();
 
             obj.Producto = text;
-            obj.Total = float.Parse(lblTotal.Text);
+            obj.Total = total;
 
             database.Agregar(obj);
-            MessageBox.Show("Tucket creado");
+            MessageBox.Show("Ticket creado");
         }
 
-
-
+        private void txtPropina_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Validar si la tecla presionada es un número o un punto decimal.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
+        }
     }
 }
