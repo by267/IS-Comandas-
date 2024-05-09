@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IS_Comandas_.frmMainCajero;
 
 namespace IS_Comandas_.Cajero.Formularios
 {
@@ -32,10 +33,9 @@ namespace IS_Comandas_.Cajero.Formularios
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            frmMainCajero frm = new frmMainCajero();
-            
-            //desMesa();
-            frm.registrar();
+            compartir2.feria = float.Parse(lblCambio.Text);
+            compartir2.ingreso = float.Parse(txtIngreso.Text);
+            this.Close();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -53,6 +53,7 @@ namespace IS_Comandas_.Cajero.Formularios
         private void frmCobro_Load(object sender, EventArgs e)
         {
             //MessageBox.Show(total);
+            lblTotal2.Text = total.ToString();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

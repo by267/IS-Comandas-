@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtIngreso = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotal2 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +59,8 @@
             // 
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel1.BorderRadius = 25;
+            this.guna2CustomGradientPanel1.Controls.Add(this.lblTotal2);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label3);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblCambio);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2PictureBox2);
@@ -75,7 +79,7 @@
             // lblCambio
             // 
             this.lblCambio.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCambio.Location = new System.Drawing.Point(496, 114);
+            this.lblCambio.Location = new System.Drawing.Point(493, 147);
             this.lblCambio.Name = "lblCambio";
             this.lblCambio.Size = new System.Drawing.Size(250, 25);
             this.lblCambio.TabIndex = 54;
@@ -85,7 +89,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(496, 70);
+            this.label1.Location = new System.Drawing.Point(493, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 25);
             this.label1.TabIndex = 53;
@@ -97,7 +101,7 @@
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(80, 100);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(77, 133);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(50, 50);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +139,7 @@
             this.btnBuscar.FillColor = System.Drawing.Color.MediumOrchid;
             this.btnBuscar.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(186, 160);
+            this.btnBuscar.Location = new System.Drawing.Point(183, 193);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.ShadowDecoration.BorderRadius = 10;
             this.btnBuscar.ShadowDecoration.Enabled = true;
@@ -148,7 +152,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(136, 70);
+            this.label2.Location = new System.Drawing.Point(133, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(250, 25);
             this.label2.TabIndex = 34;
@@ -168,8 +172,9 @@
             this.txtIngreso.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIngreso.Font = new System.Drawing.Font("Leelawadee UI", 12F);
             this.txtIngreso.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIngreso.Location = new System.Drawing.Point(136, 100);
+            this.txtIngreso.Location = new System.Drawing.Point(133, 133);
             this.txtIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIngreso.MaxLength = 6;
             this.txtIngreso.Name = "txtIngreso";
             this.txtIngreso.PasswordChar = '\0';
             this.txtIngreso.PlaceholderText = "";
@@ -194,6 +199,26 @@
             this.btnVolver.TabIndex = 29;
             this.btnVolver.Text = " Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(133, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(250, 25);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "A pagar:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotal2
+            // 
+            this.lblTotal2.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.Location = new System.Drawing.Point(493, 28);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(250, 25);
+            this.lblTotal2.TabIndex = 56;
+            this.lblTotal2.Text = "Cambio";
+            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmCobro
             // 
@@ -225,5 +250,7 @@
         private Guna.UI2.WinForms.Guna2Button btnVolver;
         private System.Windows.Forms.Label lblCambio;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTotal2;
+        private System.Windows.Forms.Label label3;
     }
 }

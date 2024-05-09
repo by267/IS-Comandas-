@@ -25,6 +25,13 @@ namespace IS_Comandas_
         float subtotal;
         float porPropina;
         float total;
+        public static class compartir2
+        {
+            public static float ingreso { get; set; }
+            public static float feria { get; set; }
+        }
+        float feria = compartir2.feria;
+        float ingreso = compartir2.ingreso;
         public frmMainCajero()
         {
             InitializeComponent();
@@ -56,13 +63,8 @@ namespace IS_Comandas_
             this.Hide();
 
         }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
+        public void desactivartodo()
         {
-            frmCobro frm = new frmCobro();
-            //frm.Show();
-            registrar();
-
             txtPropina.Text = null;
             txtPropina.Enabled = false;
 
@@ -72,6 +74,14 @@ namespace IS_Comandas_
 
             lblSubtotal.Text = null;
             lblTotal.Text = null;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            
+            registrar();
+
+            
             
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
@@ -86,6 +96,7 @@ namespace IS_Comandas_
             lblSubtotal.Text = datos.Rows[0]["subtotal"].ToString();
 
             txtPropina.Enabled = true;
+            btnAcptPropina.Enabled = true;
         }
 
         private void frmMainCajero_Load(object sender, EventArgs e)
@@ -193,6 +204,12 @@ namespace IS_Comandas_
                 // Cancelar la pulsación de la tecla.
                 e.Handled = true;
             }
+        }
+
+        private void btnPago_Click(object sender, EventArgs e)
+        {
+            frmCobro frm = new frmCobro();
+            frm.Show();
         }
     }
 }
