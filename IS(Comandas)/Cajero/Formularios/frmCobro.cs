@@ -35,7 +35,7 @@ namespace IS_Comandas_.Cajero.Formularios
             lblCambio.Text = feria.ToString();
         }
         private void btnAceptar_Click(object sender, EventArgs e)
-        {          
+        {          //asd
             frmMainCajero frm = new frmMainCajero();
             frm.btnAceptar.Enabled = true;
             //this.Hide();
