@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: comandas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -55,7 +55,7 @@ CREATE TABLE `comandas` (
   `comentarios` varchar(45) DEFAULT NULL,
   `noComanda` int DEFAULT NULL,
   PRIMARY KEY (`idComandas`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `comandas` (
 
 LOCK TABLES `comandas` WRITE;
 /*!40000 ALTER TABLE `comandas` DISABLE KEYS */;
-INSERT INTO `comandas` VALUES (2,'Hamburguesa',99.8,1,4,'asd',23),(3,'Papas',58.5,2,4,'asd',23);
+INSERT INTO `comandas` VALUES (20,'Hamburguesa',99.8,2,4,'',267),(21,'Papas',55.9,2,4,'',267),(22,'Papas',55.9,8,4,'',267),(23,'Hamburguesa',99.8,9,4,'',267),(24,'Papas',55.9,24,4,'asd',267),(26,'Papas',55.9,3,4,'',267);
 /*!40000 ALTER TABLE `comandas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,8 +157,10 @@ CREATE TABLE `ticket` (
   `idTicket` int NOT NULL AUTO_INCREMENT,
   `listProd` longtext,
   `total` float DEFAULT NULL,
+  `ingreso` float DEFAULT NULL,
+  `cambio` float DEFAULT NULL,
   PRIMARY KEY (`idTicket`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,7 +169,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,'System.Collections.Generic.List`1[IS_Comandas_.Cajero.ticket]',260.16),(2,'System.Collections.Generic.List`1[IS_Comandas_.Cajero.ticket]',260.16),(3,'IS_Comandas_.Cajero.ticket, IS_Comandas_.Cajero.ticket',260.16),(4,'IS_Comandas_.Cajero.ticket, IS_Comandas_.Cajero.ticket',238.48),(5,'Id: 0 Producto: Hamburguesa Precio: 0Id: 0 Producto: Papas Precio: 0',238.48),(6,'Producto: HamburguesaProducto: Papas',238.48),(7,' Hamburguesa Papas',260.16),(8,' Hamburguesa, Papas,',260.16),(9,'',271),(10,'',271),(11,'',266.664),(12,'',260.16),(13,' Hamburguesa, Papas,',249.32),(14,' Hamburguesa, Papas,',271),(15,' Hamburguesa, Papas,',249.32);
+INSERT INTO `ticket` VALUES (1,'System.Collections.Generic.List`1[IS_Comandas_.Cajero.ticket]',260.16,NULL,NULL),(2,'System.Collections.Generic.List`1[IS_Comandas_.Cajero.ticket]',260.16,NULL,NULL),(3,'IS_Comandas_.Cajero.ticket, IS_Comandas_.Cajero.ticket',260.16,NULL,NULL),(4,'IS_Comandas_.Cajero.ticket, IS_Comandas_.Cajero.ticket',238.48,NULL,NULL),(5,'Id: 0 Producto: Hamburguesa Precio: 0Id: 0 Producto: Papas Precio: 0',238.48,NULL,NULL),(6,'Producto: HamburguesaProducto: Papas',238.48,NULL,NULL),(7,' Hamburguesa Papas',260.16,NULL,NULL),(8,' Hamburguesa, Papas,',260.16,NULL,NULL),(13,' Hamburguesa, Papas,',249.32,NULL,NULL),(14,' Hamburguesa, Papas,',271,NULL,NULL),(15,' Hamburguesa, Papas,',249.32,NULL,NULL),(16,' Hamburguesa, Papas,',238.48,NULL,NULL),(17,' Hamburguesa, Papas,',171.27,NULL,NULL),(19,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3482.71,NULL,NULL),(20,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3799.32,NULL,NULL),(21,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3799.32,NULL,NULL),(24,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3482.71,0,0),(25,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3482.71,0,0),(26,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3799.32,0,0),(27,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3482.71,0,0),(28,' Hamburguesa, Papas, Papas, Hamburguesa, Papas, Papas,',3641.02,0,0);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -180,4 +182,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-05 20:40:45
+-- Dump completed on 2024-05-10 16:02:42
