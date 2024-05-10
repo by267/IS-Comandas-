@@ -79,10 +79,7 @@ namespace IS_Comandas_
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             
-            registrar();
-
-            
-            
+            registrar();  
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
@@ -133,7 +130,8 @@ namespace IS_Comandas_
                 DatosCompartidos.total = total;
                 DatosCompartidos.mesa = cmbNoComanda.Text;
 
-                btnAceptar.Enabled = true;
+                btnPago.Enabled = true;
+                //btnAceptar.Enabled = true;
             }
         }
 
@@ -191,6 +189,9 @@ namespace IS_Comandas_
 
             obj.Producto = text;
             obj.Total = total;
+            //obj.Feria;
+            //obj.Ingreso = ingreso;
+
 
             database.Agregar(obj);
             MessageBox.Show("Ticket creado");

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static IS_Comandas_.frmMainCajero;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IS_Comandas_.Cajero.Formularios
 {
@@ -21,6 +22,8 @@ namespace IS_Comandas_.Cajero.Formularios
         }
         string mesa = DatosCompartidos.mesa;
         float total = DatosCompartidos.total;
+        float feria;
+        
         public frmCobro()
         {
             InitializeComponent();
@@ -28,14 +31,14 @@ namespace IS_Comandas_.Cajero.Formularios
         public void labelFeria()
         { 
             float dinero = float.Parse(txtIngreso.Text);
-            float feria = dinero - total;
+            feria = dinero - total;
             lblCambio.Text = feria.ToString();
         }
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            compartir2.feria = float.Parse(lblCambio.Text);
-            compartir2.ingreso = float.Parse(txtIngreso.Text);
-            this.Close();
+        {          
+            frmMainCajero frm = new frmMainCajero();
+            frm.btnAceptar.Enabled = true;
+            //this.Hide();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -43,6 +46,15 @@ namespace IS_Comandas_.Cajero.Formularios
             if(ingreso > total)
             {
                 labelFeria();
+                compartir2.feria = feria;
+                compartir2.ingreso = float.Parse(txtIngreso.Text);
+
+                dbTicket database = new dbTicket();
+                ticket obj = new ticket();
+                DataTable datos = new DataTable();
+
+                obj.Feria = feria;
+                obj.Ingreso = ingreso;
             }
             else
             {

@@ -53,11 +53,13 @@ namespace IS_Comandas_.Cajero
         }
         public void Agregar(ticket obj)
         {
-            String sqlConsulta = "insert into ticket (listProd, total) values(@listProd, @total)";
+            String sqlConsulta = "insert into ticket (listProd, total, ingreso, cambio) values(@listProd, @total, @ingreso, @feria)";
             comando.Parameters.Clear();
             comando.Parameters.Add("@listProd", MySqlDbType.VarChar).Value = obj.Producto;
             comando.Parameters.Add("@total", MySqlDbType.Float).Value = obj.Total;
-           
+            comando.Parameters.Add("@ingreso", MySqlDbType.Float).Value = obj.Ingreso;
+            comando.Parameters.Add("@feria", MySqlDbType.Float).Value = obj.Feria;
+
             this.abrir();
             comando.Connection = conexion;
             comando.CommandText = sqlConsulta;
