@@ -57,7 +57,7 @@ namespace IS_Comandas_.Cajero
             comando.Parameters.Clear();
             comando.Parameters.Add("@listProd", MySqlDbType.VarChar).Value = obj.Producto;
             comando.Parameters.Add("@total", MySqlDbType.Float).Value = obj.Total;
-            comando.Parameters.Add("@ingreso", MySqlDbType.Float).Value = obj.Ingreso;
+            comando.Parameters.Add("@ingreso", MySqlDbType.Int64).Value = obj.Ingreso;
             comando.Parameters.Add("@feria", MySqlDbType.Float).Value = obj.Feria;
 
             this.abrir();

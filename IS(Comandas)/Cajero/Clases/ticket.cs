@@ -11,7 +11,7 @@ namespace IS_Comandas_.Cajero
         public int Id { get; set; }
         public string Producto { get; set; }
         public float Total { get; set; }
-        public float Ingreso { get; set; }
+        public int Ingreso { get; set; }
         public float Feria { get; set; }
     }
 }

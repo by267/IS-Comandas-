@@ -32,16 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobro));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblTotal2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblCambio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCalcular = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIngreso = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTotal2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2PictureBox2);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnAceptar);
-            this.guna2CustomGradientPanel1.Controls.Add(this.btnBuscar);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnCalcular);
             this.guna2CustomGradientPanel1.Controls.Add(this.label2);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtIngreso);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnVolver);
@@ -75,6 +76,26 @@
             this.guna2CustomGradientPanel1.ShadowDecoration.Enabled = true;
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(830, 425);
             this.guna2CustomGradientPanel1.TabIndex = 26;
+            // 
+            // lblTotal2
+            // 
+            this.lblTotal2.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.Location = new System.Drawing.Point(493, 28);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(250, 25);
+            this.lblTotal2.TabIndex = 56;
+            this.lblTotal2.Text = "Cambio";
+            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(133, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(250, 25);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "A pagar:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCambio
             // 
@@ -127,27 +148,27 @@
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // btnBuscar
+            // btnCalcular
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.BorderRadius = 10;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBuscar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBuscar.FillColor = System.Drawing.Color.MediumOrchid;
-            this.btnBuscar.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(183, 193);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.ShadowDecoration.BorderRadius = 10;
-            this.btnBuscar.ShadowDecoration.Enabled = true;
-            this.btnBuscar.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 0, 5);
-            this.btnBuscar.Size = new System.Drawing.Size(150, 50);
-            this.btnBuscar.TabIndex = 48;
-            this.btnBuscar.Text = "Calcular";
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnCalcular.BackColor = System.Drawing.Color.Transparent;
+            this.btnCalcular.BorderRadius = 10;
+            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcular.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalcular.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalcular.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCalcular.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCalcular.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnCalcular.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
+            this.btnCalcular.ForeColor = System.Drawing.Color.White;
+            this.btnCalcular.Location = new System.Drawing.Point(183, 193);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.ShadowDecoration.BorderRadius = 10;
+            this.btnCalcular.ShadowDecoration.Enabled = true;
+            this.btnCalcular.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 0, 5);
+            this.btnCalcular.Size = new System.Drawing.Size(150, 50);
+            this.btnCalcular.TabIndex = 48;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -200,25 +221,9 @@
             this.btnVolver.Text = " Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // label3
+            // timer1
             // 
-            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(133, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 25);
-            this.label3.TabIndex = 55;
-            this.label3.Text = "A pagar:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotal2
-            // 
-            this.lblTotal2.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal2.Location = new System.Drawing.Point(493, 28);
-            this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(250, 25);
-            this.lblTotal2.TabIndex = 56;
-            this.lblTotal2.Text = "Cambio";
-            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmCobro
             // 
@@ -244,7 +249,7 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Button btnAceptar;
-        private Guna.UI2.WinForms.Guna2Button btnBuscar;
+        private Guna.UI2.WinForms.Guna2Button btnCalcular;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtIngreso;
         private Guna.UI2.WinForms.Guna2Button btnVolver;
@@ -252,5 +257,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTotal2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -35,26 +35,19 @@ namespace IS_Comandas_.Cajero.Formularios
             lblCambio.Text = feria.ToString();
         }
         private void btnAceptar_Click(object sender, EventArgs e)
-        {          //asd
-            frmMainCajero frm = new frmMainCajero();
-            frm.btnAceptar.Enabled = true;
-            //this.Hide();
+        {
+            this.Close();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            
             int ingreso = int.Parse(txtIngreso.Text);
-            if(ingreso > total)
+            compartir2.feria = feria;
+            compartir2.ingreso = ingreso;
+            if (ingreso > total)
             {
                 labelFeria();
-                compartir2.feria = feria;
-                compartir2.ingreso = float.Parse(txtIngreso.Text);
-
-                dbTicket database = new dbTicket();
-                ticket obj = new ticket();
-                DataTable datos = new DataTable();
-
-                obj.Feria = feria;
-                obj.Ingreso = ingreso;
+                timer1.Start();
             }
             else
             {
@@ -71,6 +64,11 @@ namespace IS_Comandas_.Cajero.Formularios
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

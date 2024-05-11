@@ -27,11 +27,11 @@ namespace IS_Comandas_
         float total;
         public static class compartir2
         {
-            public static float ingreso { get; set; }
+            public static int ingreso { get; set; }
             public static float feria { get; set; }
         }
         float feria = compartir2.feria;
-        float ingreso = compartir2.ingreso;
+        int ingreso = compartir2.ingreso;
         public frmMainCajero()
         {
             InitializeComponent();
@@ -115,7 +115,8 @@ namespace IS_Comandas_
         {
             if(txtPropina.Text == "")
             {
-                MessageBox.Show("Ingrese un porcentaje de propina");
+                MessageBox.Show("Deja propina no seas codo pinche pobre");
+                //MessageBox.Show("Ingrese un porcentaje de propina");
             }
             else
             {
@@ -131,7 +132,6 @@ namespace IS_Comandas_
                 DatosCompartidos.mesa = cmbNoComanda.Text;
 
                 btnPago.Enabled = true;
-                //btnAceptar.Enabled = true;
             }
         }
 
@@ -189,8 +189,8 @@ namespace IS_Comandas_
 
             obj.Producto = text;
             obj.Total = total;
-            //obj.Feria;
-            //obj.Ingreso = ingreso;
+            obj.Feria = feria;
+            obj.Ingreso = ingreso;
 
 
             database.Agregar(obj);
@@ -211,6 +211,8 @@ namespace IS_Comandas_
         {
             frmCobro frm = new frmCobro();
             frm.Show();
+            btnAceptar.Enabled = true;
+
         }
     }
 }
