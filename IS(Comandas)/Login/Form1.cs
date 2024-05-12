@@ -8,11 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IS_Comandas_.frmMainCajero;
 
 namespace IS_Comandas_
 {
     public partial class Form1 : Form
     {
+        string usuario;
+        public string nombre;
+        public delegate void DatosEnviadosEventHandler(string nombre);
+        public event DatosEnviadosEventHandler DatosEnviados;
         public Form1()
         {
             InitializeComponent();
@@ -59,9 +64,13 @@ namespace IS_Comandas_
                     }
                     else if(lblPuesto.Text == "Cajero")
                     {
+                        cargarEmp();
+                        //DatosCompartidos.Empleado = txtUsuario.Text;
                         frmMainCajero frm = new frmMainCajero();
                         frm.Visible = true;
                         this.Visible = false;
+                        //cargarEmp();
+                        
                     }
                 }
             }
@@ -84,6 +93,22 @@ namespace IS_Comandas_
             {
                 cargarPuesto();
             }
+        }
+        public void cargarEmp()
+        {
+
+            dbEmpleado dbe = new dbEmpleado();
+            ClassEmpleado obj = new ClassEmpleado();
+            DataTable datos = new DataTable();
+
+            obj.Usuario = txtUsuario.Text;
+            datos = dbe.ConsultarEmpleadoU(obj);
+            if (datos.Rows.Count > 0)
+            {
+                nombre = datos.Rows[0]["nombreCompleto"].ToString();
+                DatosCompartidos.Empleado = nombre;
+            }
+            
         }
     }
 }

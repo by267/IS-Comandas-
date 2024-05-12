@@ -35,8 +35,12 @@ namespace IS_Comandas_
         int Conteo;
         int Fila = 0;
         int mesa;
-
-
+        public string empleado;
+        public static class DatosCompartidos
+        {
+            public static string Empleado { get; set; }
+        }
+        //public static string Empleado;
         public frmMainCajero()
         {
             InitializeComponent();
@@ -166,6 +170,9 @@ namespace IS_Comandas_
             cargarCombo();
             InstalledPrintersCombo();
             cmbInstalledPrinters.SelectedIndex = 2;
+            //empleado = DatosCompartidos.Empleado;
+            empleado = DatosCompartidos.Empleado.ToString();
+            label1.Text = empleado.ToString();
         }
 
         private void btniCerrar_Click_1(object sender, EventArgs e)
@@ -313,20 +320,20 @@ namespace IS_Comandas_
                 Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
                 Ticket1.TextoIzquierda("No Fac:" + obj.Id);
                 Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
-                Ticket1.TextoIzquierda("Le Atendio: xxxx");
+                Ticket1.TextoIzquierda("Le Atendio:"+empleado.ToString());
                 Ticket1.TextoIzquierda("");
 
                 impTicket.CreaTicket.LineasGuion();
                 impTicket.CreaTicket.EncabezadoVenta();
 
                 impTicket.CreaTicket.LineasGuion();
-                Ticket1.AgregaTotales("Sub-Total", double.Parse(lblSubtotal.Text)); // imprime linea con Subtotal
-                Ticket1.AgregaTotales("Descuento", double.Parse("000")); // imprime linea con decuento total
+                Ticket1.AgregaTotales("Sub-Total", float.Parse(lblSubtotal.Text)); // imprime linea con Subtotal
+                Ticket1.AgregaTotales("Descuento", float.Parse("000")); // imprime linea con decuento total
                 Ticket1.TextoIzquierda(" ");
-                Ticket1.AgregaTotales("Total", double.Parse(lblTotal.Text)); // imprime linea con total
+                Ticket1.AgregaTotales("Total", float.Parse(lblTotal.Text)); // imprime linea con total
                 Ticket1.TextoIzquierda(" ");
-                Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(txtIngreso.Text));
-                Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(lblCambio.Text));
+                Ticket1.AgregaTotales("Efectivo Entregado:", float.Parse(txtIngreso.Text));
+                Ticket1.AgregaTotales("Efectivo Devuelto:", float.Parse(lblCambio.Text));
 
 
                 // Ticket1.LineasTotales(); // imprime linea 
@@ -344,5 +351,6 @@ namespace IS_Comandas_
         {
             cargarCombo();
         }
+        
     }
 }

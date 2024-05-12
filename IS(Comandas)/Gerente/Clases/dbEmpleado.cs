@@ -157,5 +157,19 @@ namespace IS_Comandas_.Gerente.Clases
             comando.ExecuteNonQuery();
             this.cerrar();
         }
+        public DataTable ConsultarEmpleadoU(ClassEmpleado obj)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "select  idEmpleado, NombreCompleto, Usuario, Password, Puesto from empleados where usuario = @nombre";
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = obj.Usuario;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
+        }
     }
 }
