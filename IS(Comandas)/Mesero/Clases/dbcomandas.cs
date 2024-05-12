@@ -175,5 +175,15 @@ namespace IS_Comandas_.Mesero.Clases
             comando.ExecuteNonQuery();
             this.cerrar();
         }
+        public void EliminarM(clasecomanda obj)
+        {
+            String sqlConsulta = "DELETE FROM comandas WHERE noComanda = @ID";
+            comando.Parameters.Add("@ID", MySqlDbType.Int32).Value = obj.noComanda;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            comando.ExecuteNonQuery();
+            this.cerrar();
+        }
     }
 }

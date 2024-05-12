@@ -38,7 +38,11 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btniCerrar = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btnPago = new Guna.UI2.WinForms.Guna2Button();
+            this.lblCambio = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnCalcular = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtIngreso = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAcptPropina = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPropina = new Guna.UI2.WinForms.Guna2TextBox();
@@ -53,6 +57,8 @@
             this.cmbNoComanda = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.cmbInstalledPrinters = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
@@ -122,7 +128,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel1.BorderRadius = 25;
-            this.guna2CustomGradientPanel1.Controls.Add(this.btnPago);
+            this.guna2CustomGradientPanel1.Controls.Add(this.cmbInstalledPrinters);
+            this.guna2CustomGradientPanel1.Controls.Add(this.lblCambio);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label6);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnCalcular);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtIngreso);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnAcptPropina);
             this.guna2CustomGradientPanel1.Controls.Add(this.label8);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtPropina);
@@ -143,24 +154,82 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1160, 700);
             this.guna2CustomGradientPanel1.TabIndex = 20;
             // 
-            // btnPago
+            // lblCambio
             // 
-            this.btnPago.BorderRadius = 10;
-            this.btnPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPago.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPago.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPago.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPago.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPago.Enabled = false;
-            this.btnPago.FillColor = System.Drawing.Color.MediumOrchid;
-            this.btnPago.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
-            this.btnPago.ForeColor = System.Drawing.Color.White;
-            this.btnPago.Location = new System.Drawing.Point(913, 342);
-            this.btnPago.Name = "btnPago";
-            this.btnPago.Size = new System.Drawing.Size(200, 75);
-            this.btnPago.TabIndex = 84;
-            this.btnPago.Text = "Ingresar Pago";
-            this.btnPago.Click += new System.EventHandler(this.btnPago_Click);
+            this.lblCambio.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCambio.Location = new System.Drawing.Point(863, 335);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Size = new System.Drawing.Size(250, 25);
+            this.lblCambio.TabIndex = 88;
+            this.lblCambio.Text = "Aqui va la feria";
+            this.lblCambio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(695, 335);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(162, 25);
+            this.label6.TabIndex = 87;
+            this.label6.Text = "Cambio:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.BackColor = System.Drawing.Color.Transparent;
+            this.btnCalcular.BorderRadius = 10;
+            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcular.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalcular.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalcular.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCalcular.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCalcular.Enabled = false;
+            this.btnCalcular.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnCalcular.Font = new System.Drawing.Font("Leelawadee UI", 18F, System.Drawing.FontStyle.Bold);
+            this.btnCalcular.ForeColor = System.Drawing.Color.White;
+            this.btnCalcular.Location = new System.Drawing.Point(963, 229);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.ShadowDecoration.BorderRadius = 10;
+            this.btnCalcular.ShadowDecoration.Enabled = true;
+            this.btnCalcular.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 0, 5);
+            this.btnCalcular.Size = new System.Drawing.Size(150, 50);
+            this.btnCalcular.TabIndex = 86;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(695, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(250, 25);
+            this.label3.TabIndex = 85;
+            this.label3.Text = "Ingresa la cantidad";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtIngreso
+            // 
+            this.txtIngreso.BorderRadius = 5;
+            this.txtIngreso.BorderThickness = 2;
+            this.txtIngreso.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIngreso.DefaultText = "";
+            this.txtIngreso.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIngreso.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIngreso.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIngreso.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIngreso.Enabled = false;
+            this.txtIngreso.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngreso.Font = new System.Drawing.Font("Leelawadee UI", 12F);
+            this.txtIngreso.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngreso.Location = new System.Drawing.Point(695, 229);
+            this.txtIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIngreso.MaxLength = 6;
+            this.txtIngreso.Name = "txtIngreso";
+            this.txtIngreso.PasswordChar = '\0';
+            this.txtIngreso.PlaceholderText = "";
+            this.txtIngreso.SelectedText = "";
+            this.txtIngreso.Size = new System.Drawing.Size(250, 50);
+            this.txtIngreso.TabIndex = 84;
             // 
             // btnAcptPropina
             // 
@@ -411,6 +480,26 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // cmbInstalledPrinters
+            // 
+            this.cmbInstalledPrinters.BackColor = System.Drawing.Color.Transparent;
+            this.cmbInstalledPrinters.BorderRadius = 5;
+            this.cmbInstalledPrinters.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbInstalledPrinters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbInstalledPrinters.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbInstalledPrinters.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbInstalledPrinters.Font = new System.Drawing.Font("Leelawadee UI", 12F);
+            this.cmbInstalledPrinters.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbInstalledPrinters.ItemHeight = 30;
+            this.cmbInstalledPrinters.Location = new System.Drawing.Point(695, 431);
+            this.cmbInstalledPrinters.Name = "cmbInstalledPrinters";
+            this.cmbInstalledPrinters.Size = new System.Drawing.Size(250, 36);
+            this.cmbInstalledPrinters.TabIndex = 89;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMainCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,7 +546,13 @@
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2TextBox txtPropina;
         private Guna.UI2.WinForms.Guna2Button btnAcptPropina;
-        private Guna.UI2.WinForms.Guna2Button btnPago;
         public Guna.UI2.WinForms.Guna2Button btnAceptar;
+        private Guna.UI2.WinForms.Guna2Button btnCalcular;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox txtIngreso;
+        private System.Windows.Forms.Label lblCambio;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbInstalledPrinters;
+        private System.Windows.Forms.Timer timer1;
     }
 }

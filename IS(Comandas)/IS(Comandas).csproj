@@ -319,6 +319,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\Session.cs" />
+    <Compile Include="Ticket\impTicket.cs" />
     <EmbeddedResource Include="Cajero\Formularios\frmCobro.resx">
       <DependentUpon>frmCobro.cs</DependentUpon>
     </EmbeddedResource>

@@ -14,6 +14,9 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using IS_Comandas_.Cajero.Formularios;
 using static IS_Comandas_.Cajero.Formularios.frmCobro;
+using System.IO;
+using System.Drawing.Printing;
+using IS_Comandas_.Ticket;
 
 
 namespace IS_Comandas_
@@ -21,17 +24,19 @@ namespace IS_Comandas_
     public partial class frmMainCajero : Form
     {
         List<ticket> listaDatos = new List<ticket>();
+        private Font printFont;
+        private StreamReader streamToPrint;
         int propina;
         float subtotal;
         float porPropina;
         float total;
-        public static class compartir2
-        {
-            public static int ingreso { get; set; }
-            public static float feria { get; set; }
-        }
-        float feria = compartir2.feria;
-        int ingreso = compartir2.ingreso;
+        float feria;
+        int ingreso;
+        int Conteo;
+        int Fila = 0;
+        int mesa;
+
+
         public frmMainCajero()
         {
             InitializeComponent();
@@ -50,9 +55,12 @@ namespace IS_Comandas_
             dbcomandas database = new dbcomandas();
             DataTable datos = new DataTable();
             clasecomanda obj = new clasecomanda();
+            
             obj.noComanda = cmbNoComanda.SelectedValue.ToString();
             datos = database.ConsultarCodigoH(obj);
             dgvDatos.DataSource = datos;
+            
+            
         }
 
         private void btniCerrar_Click(object sender, EventArgs e)
@@ -65,43 +73,99 @@ namespace IS_Comandas_
         }
         public void desactivartodo()
         {
-            txtPropina.Text = null;
+            txtPropina.Text = "";
+            txtIngreso.Text = "";
             txtPropina.Enabled = false;
+            txtIngreso.Enabled = false;
 
             dgvDatos.DataSource = null;
             btnAceptar.Enabled = false;
             btnAcptPropina.Enabled = false;
 
-            lblSubtotal.Text = null;
-            lblTotal.Text = null;
-        }
+            lblSubtotal.Text = "";
+            lblTotal.Text = "";
+            lblCambio.Text = "";
 
+            cmbInstalledPrinters.SelectedIndex = 2;
+        }
+        private void labelFeria()
+        {
+            float dinero = float.Parse(txtIngreso.Text);
+            feria = dinero - total;
+            lblCambio.Text = feria.ToString();
+        }
+        private void InstalledPrintersCombo()
+        {
+            // Add list of installed printers found to the combo box.
+            // The pkInstalledPrinters string will be used to provide the display string.
+            String pkInstalledPrinters;
+            for (int i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
+            {
+                pkInstalledPrinters = PrinterSettings.InstalledPrinters[i];
+                cmbInstalledPrinters.Items.Add(pkInstalledPrinters);
+
+            }
+            cmbInstalledPrinters.Text = "PDFLite";
+        }
+        private void cargarMesa()
+        {
+            dbcomandas dbe = new dbcomandas();
+            clasecomanda obj = new clasecomanda();
+            DataTable datos = new DataTable();
+
+            obj.noComanda = cmbNoComanda.Text;
+            datos = dbe.ConsultarPuesto(obj);
+            if (datos.Rows.Count > 0)
+            {
+                mesa = Convert.ToInt32(datos.Rows[0]["mesa"].ToString());
+            }
+
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if(cmbInstalledPrinters == null)
+            {
+                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                imprimir();
+                registrar();
+                desactivartodo();
+                desMesa();
+                cargarCombo();
+            }
             
-            registrar();  
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            cargarDatos();
+            
 
             dbcomandas database = new dbcomandas();
             clasecomanda obj = new clasecomanda();
             DataTable datos = new DataTable();
-            obj.noComanda = cmbNoComanda.SelectedValue.ToString();
-            datos = database.sumaTotal(obj);
-            lblSubtotal.Text = datos.Rows[0]["subtotal"].ToString();
+            if (cmbNoComanda.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                cargarDatos();
+                cargarMesa();
+                obj.noComanda = cmbNoComanda.SelectedValue.ToString();
+                datos = database.sumaTotal(obj);
+                lblSubtotal.Text = datos.Rows[0]["subtotal"].ToString();
 
-            txtPropina.Enabled = true;
-            btnAcptPropina.Enabled = true;
+                txtPropina.Enabled = true;
+                btnAcptPropina.Enabled = true;
+            }
         }
 
         private void frmMainCajero_Load(object sender, EventArgs e)
         {
             cargarCombo();
-            //cargarDatos();
-
-            
+            InstalledPrintersCombo();
+            cmbInstalledPrinters.SelectedIndex = 2;
         }
 
         private void btniCerrar_Click_1(object sender, EventArgs e)
@@ -115,8 +179,8 @@ namespace IS_Comandas_
         {
             if(txtPropina.Text == "")
             {
-                MessageBox.Show("Deja propina no seas codo pinche pobre");
-                //MessageBox.Show("Ingrese un porcentaje de propina");
+                //MessageBox.Show("Deja propina no seas codo pinche pobre");
+                MessageBox.Show("Ingrese un porcentaje de propina", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -127,11 +191,8 @@ namespace IS_Comandas_
                 total = subtotal + porPropina;
 
                 lblTotal.Text = total.ToString();
-
-                DatosCompartidos.total = total;
-                DatosCompartidos.mesa = cmbNoComanda.Text;
-
-                btnPago.Enabled = true;
+                btnCalcular.Enabled = true;
+                txtIngreso.Enabled = true;
             }
         }
 
@@ -139,9 +200,16 @@ namespace IS_Comandas_
         {
             dbMesa database = new dbMesa();
             ClassMesa obj = new ClassMesa();
-            obj.Id = int.Parse(cmbNoComanda.SelectedValue.ToString());
+            obj.Id = mesa;
             database.desactivarMesa(obj);
             //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            dbcomandas database2 = new dbcomandas();
+            clasecomanda obj2 = new clasecomanda();
+
+            obj2.noComanda = cmbNoComanda.Text;
+
+            database2.EliminarM(obj2);
         }
 
         private void lista()
@@ -194,7 +262,7 @@ namespace IS_Comandas_
 
 
             database.Agregar(obj);
-            MessageBox.Show("Ticket creado");
+            MessageBox.Show("El ticket se creo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtPropina_KeyPress(object sender, KeyPressEventArgs e)
@@ -213,6 +281,68 @@ namespace IS_Comandas_
             frm.Show();
             btnAceptar.Enabled = true;
 
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {            
+            ingreso = int.Parse(txtIngreso.Text);
+            if (ingreso > total)
+            {
+                labelFeria();
+                btnAceptar.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Cantidad insuficiente", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void imprimir()
+        {
+            impTicket imp = new impTicket();
+            ticket obj = new ticket();
+
+            impTicket.CreaTicket Ticket1 = new impTicket.CreaTicket();
+
+                Ticket1.TextoCentro("Empresa xxxxx "); //imprime una linea de descripcion
+                Ticket1.TextoCentro("**********************************");
+
+                Ticket1.TextoIzquierda("Dirc: xxxx");
+                Ticket1.TextoIzquierda("Tel:xxxx ");
+                Ticket1.TextoIzquierda("Rnc: xxxx");
+                Ticket1.TextoIzquierda("");
+                Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
+                Ticket1.TextoIzquierda("No Fac:" + obj.Id);
+                Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
+                Ticket1.TextoIzquierda("Le Atendio: xxxx");
+                Ticket1.TextoIzquierda("");
+
+                impTicket.CreaTicket.LineasGuion();
+                impTicket.CreaTicket.EncabezadoVenta();
+
+                impTicket.CreaTicket.LineasGuion();
+                Ticket1.AgregaTotales("Sub-Total", double.Parse(lblSubtotal.Text)); // imprime linea con Subtotal
+                Ticket1.AgregaTotales("Descuento", double.Parse("000")); // imprime linea con decuento total
+                Ticket1.TextoIzquierda(" ");
+                Ticket1.AgregaTotales("Total", double.Parse(lblTotal.Text)); // imprime linea con total
+                Ticket1.TextoIzquierda(" ");
+                Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(txtIngreso.Text));
+                Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(lblCambio.Text));
+
+
+                // Ticket1.LineasTotales(); // imprime linea 
+
+                Ticket1.TextoIzquierda(" ");
+                Ticket1.TextoCentro("**********************************");
+                Ticket1.TextoCentro("*     Gracias por preferirnos    *");
+                Ticket1.TextoCentro("**********************************");
+                Ticket1.TextoIzquierda(" ");
+
+                Ticket1.ImprimirTiket(cmbInstalledPrinters.Text); //Imprimir
+            }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            cargarCombo();
         }
     }
 }

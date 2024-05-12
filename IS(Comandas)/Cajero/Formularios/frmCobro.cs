@@ -15,13 +15,7 @@ namespace IS_Comandas_.Cajero.Formularios
 {
     public partial class frmCobro : Form
     {
-        public static class DatosCompartidos
-        {
-            public static float total { get; set; }
-            public static string mesa { get; set; }
-        }
-        string mesa = DatosCompartidos.mesa;
-        float total = DatosCompartidos.total;
+        float total;
         float feria;
         
         public frmCobro()
@@ -42,8 +36,7 @@ namespace IS_Comandas_.Cajero.Formularios
         {
             
             int ingreso = int.Parse(txtIngreso.Text);
-            compartir2.feria = feria;
-            compartir2.ingreso = ingreso;
+            
             if (ingreso > total)
             {
                 labelFeria();

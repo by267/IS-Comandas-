@@ -175,16 +175,16 @@ namespace IS_Comandas_.Mesero
                 }
                 else
                 {
-                    MessageBox.Show("Selecciona una fila para eliminar");
+                    MessageBox.Show("Seleccione una fila valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("No hay productos seleccionadas");
+                MessageBox.Show("No hay elementos seleccionados", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             // Obtiene la fila seleccionada en el DataGridView
-            
-            
+
+
 
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
