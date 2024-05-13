@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static IS_Comandas_.frmMainCajero;
+using static IS_Comandas_.frmMainGerente;
+using static IS_Comandas_.frmMainMesero;
 
 namespace IS_Comandas_
 {
@@ -52,12 +54,14 @@ namespace IS_Comandas_
                 {
                     if (lblPuesto.Text == "Gerente")
                     {
+                        cargarEmp();
                         frmMainGerente frm = new frmMainGerente();
                         frm.Visible = true;
                         this.Visible = false;
                     }
                     else if (lblPuesto.Text == "Mesero")
                     {
+                        cargarEmp();
                         frmMainMesero frm = new frmMainMesero();
                         frm.Visible = true;
                         this.Visible = false;
@@ -68,9 +72,7 @@ namespace IS_Comandas_
                         //DatosCompartidos.Empleado = txtUsuario.Text;
                         frmMainCajero frm = new frmMainCajero();
                         frm.Visible = true;
-                        this.Visible = false;
-                        //cargarEmp();
-                        
+                        this.Visible = false;                        
                     }
                 }
             }
@@ -85,7 +87,7 @@ namespace IS_Comandas_
         }
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Version: 1.2 alpha", "About");
+            MessageBox.Show("Para recuperar la contraseña contacte con el administrador", "About");
         }
         private void txtPass_Click(object sender, EventArgs e)
         {
@@ -93,6 +95,7 @@ namespace IS_Comandas_
             {
                 cargarPuesto();
             }
+
         }
         public void cargarEmp()
         {
@@ -107,8 +110,11 @@ namespace IS_Comandas_
             {
                 nombre = datos.Rows[0]["nombreCompleto"].ToString();
                 DatosCompartidos.Empleado = nombre;
+                DatosCompartidos2.Empleado = nombre;
+                DatosCompartidos3.Empleado = nombre;
+
             }
-            
+
         }
     }
 }

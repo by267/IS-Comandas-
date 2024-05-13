@@ -13,6 +13,11 @@ namespace IS_Comandas_
 {
     public partial class frmMainMesero : Form
     {
+        public string empleado;
+        public static class DatosCompartidos3
+        {
+            public static string Empleado { get; set; }
+        }
         public frmMainMesero()
         {
             InitializeComponent();
@@ -52,6 +57,12 @@ namespace IS_Comandas_
             frmModComanda frm = new frmModComanda();
             frm.Show();
             this.Hide();
+        }
+
+        private void frmMainMesero_Load(object sender, EventArgs e)
+        {
+            empleado = DatosCompartidos3.Empleado.ToString();
+            label1.Text = "Bienvenido: " + empleado.ToString();
         }
     }
 }

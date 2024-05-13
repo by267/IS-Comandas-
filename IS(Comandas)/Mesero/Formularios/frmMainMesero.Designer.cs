@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMesero));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btniCerrar = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnActivarMesa = new Guna.UI2.WinForms.Guna2Button();
@@ -65,25 +64,13 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(715, 12);
+            this.label1.Location = new System.Drawing.Point(120, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 86);
+            this.label1.Size = new System.Drawing.Size(250, 65);
             this.label1.TabIndex = 19;
             this.label1.Text = "(Nombre)";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Leelawadee UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(324, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(376, 86);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Bienvenido";
             // 
             // guna2PictureBox1
             // 
@@ -258,7 +245,6 @@
             this.BackColor = System.Drawing.Color.DarkOrchid;
             this.ClientSize = new System.Drawing.Size(1280, 820);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btniCerrar);
             this.Controls.Add(this.guna2CustomGradientPanel1);
@@ -266,6 +252,7 @@
             this.Name = "frmMainMesero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainMesero";
+            this.Load += new System.EventHandler(this.frmMainMesero_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -280,7 +267,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ImageButton btniCerrar;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;

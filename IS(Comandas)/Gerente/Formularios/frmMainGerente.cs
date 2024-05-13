@@ -1,4 +1,5 @@
 ﻿using IS_Comandas_.Gerente;
+using IS_Comandas_.Gerente.Clases;
 using IS_Comandas_.Gerente.Formularios;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace IS_Comandas_
 {
     public partial class frmMainGerente : Form
     {
+        public string empleado;
+        public static class DatosCompartidos2
+        {
+            public static string Empleado { get; set; }
+        }
         public frmMainGerente()
         {
             InitializeComponent();
@@ -69,6 +75,12 @@ namespace IS_Comandas_
             frmCategoria frmAEmp = new frmCategoria();
             //this.Enabled = false;
             frmAEmp.Show();
+        }
+
+        private void frmMainGerente_Load(object sender, EventArgs e)
+        {
+            empleado = DatosCompartidos2.Empleado.ToString();
+            label1.Text = "Bienvenido: " + empleado.ToString();
         }
     }
 }

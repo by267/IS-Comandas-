@@ -172,7 +172,7 @@ namespace IS_Comandas_
             cmbInstalledPrinters.SelectedIndex = 2;
             //empleado = DatosCompartidos.Empleado;
             empleado = DatosCompartidos.Empleado.ToString();
-            label1.Text = empleado.ToString();
+            label1.Text = "Bienvenido: " + empleado.ToString();
         }
 
         private void btniCerrar_Click_1(object sender, EventArgs e)
