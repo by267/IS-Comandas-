@@ -189,7 +189,7 @@ namespace IS_Comandas_.Mesero
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La icomanda se creo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La comanda se creó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Uhab();
         }
 
@@ -202,7 +202,6 @@ namespace IS_Comandas_.Mesero
                 e.Handled = true;
             }
         }
-
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Validar si la tecla presionada es un número o un punto decimal.

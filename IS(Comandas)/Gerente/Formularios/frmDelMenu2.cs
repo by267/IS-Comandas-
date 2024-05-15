@@ -54,7 +54,7 @@ namespace IS_Comandas_.Gerente.Formularios
             }
             else
             {
-                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Rellene los campos correctamente.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -80,7 +80,7 @@ namespace IS_Comandas_.Gerente.Formularios
 
             if (txtNombre.Text == "")
             {
-                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una opción válida.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace IS_Comandas_.Gerente.Formularios
                 DataTable datos = new DataTable();
                 database.EliminarE(obj);
 
-                MessageBox.Show("El producto se elimino con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El producto se eliminó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void btnVolver_Click(object sender, EventArgs e)

@@ -221,6 +221,17 @@
         YII=
 </value>
   </data>
+  <data name="guna2PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAATBJREFUaEPt
+        mMENwjAQBFMKpVAKnVEKpVAK+B5EaOXgHUUXO8Ij7YudsIn88jKZTKpcSu4lrwHyLIktsckiirUH9U68
+        iPUSo3z5Wh4lTeJNa/IIiW1NVOoN3oOFZPAeLCSD92AhGbwHC8ngPVhIBu9xBe3tzRZub8UVtLc3W7i9
+        FVfQ3t5s4fZWXEF7e7OF21vBQjJ4DxaSwXuwkAzeg4Vk8B5X0J4bCvZdQXtuKNh3Be25oWDfFbTnhoJ9
+        LCSD92AhGbwHC8ngPVhIBu/BQjJ4DxaSwXtawq1EO0emyS+h97Vj/H8TlYK4VI17Sf3tyNiXuyr2PjKf
+        63Wb2kM08dBryZDUBn8HfY0e1EZ/EsdpeGrDhz4yio4f/sgo3+NPcWSUGH6qI6Oc7shMJv/LsrwB+Bia
+        gA6hef0AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAdxJREFUaEPt
@@ -266,15 +277,4 @@
   <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>280, 17</value>
   </metadata>
-  <data name="guna2PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAATBJREFUaEPt
-        mMENwjAQBFMKpVAKnVEKpVAK+B5EaOXgHUUXO8Ij7YudsIn88jKZTKpcSu4lrwHyLIktsckiirUH9U68
-        iPUSo3z5Wh4lTeJNa/IIiW1NVOoN3oOFZPAeLCSD92AhGbwHC8ngPVhIBu9xBe3tzRZub8UVtLc3W7i9
-        FVfQ3t5s4fZWXEF7e7OF21vBQjJ4DxaSwXuwkAzeg4Vk8B5X0J4bCvZdQXtuKNh3Be25oWDfFbTnhoJ9
-        LCSD92AhGbwHC8ngPVhIBu/BQjJ4DxaSwXtawq1EO0emyS+h97Vj/H8TlYK4VI17Sf3tyNiXuyr2PjKf
-        63Wb2kM08dBryZDUBn8HfY0e1EZ/EsdpeGrDhz4yio4f/sgo3+NPcWSUGH6qI6Oc7shMJv/LsrwB+Bia
-        gA6hef0AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

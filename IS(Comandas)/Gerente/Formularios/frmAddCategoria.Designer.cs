@@ -59,7 +59,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(500, 30);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Agregar Categoria";
+            this.label2.Text = "Agregar Categoría";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CustomGradientPanel1
@@ -124,7 +124,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(500, 30);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Ingrese el nombre de la categoria";
+            this.label1.Text = "Ingrese el nombre de la categoría";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAceptar

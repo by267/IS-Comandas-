@@ -36,9 +36,9 @@ namespace IS_Comandas_.Mesero
             cmbNoComanda.Text = "Selecciona una opcion";
             dbcomandas db = new dbcomandas();
 
-            cmbNoComanda.DataSource = db.ConsultarO("noComanda");
-            cmbNoComanda.DisplayMember = "noComanda";
-            cmbNoComanda.ValueMember = "noComanda";
+            cmbNoComanda.DataSource = db.ConsultarO("mesa");
+            cmbNoComanda.DisplayMember = "mesa";
+            cmbNoComanda.ValueMember = "mesa";
         }
         private void act()
         {
@@ -62,7 +62,7 @@ namespace IS_Comandas_.Mesero
 
 
             dgvDatos.DataSource = null;
-            dgvComanda.Rows.Clear();
+            dgvComanda.DataSource=null;
             txtSearch.Text = null;
             txtCantidad.Text = null;
             txtComentarios.Text = null;
@@ -108,17 +108,17 @@ namespace IS_Comandas_.Mesero
             //Uhab();
             database.Agregar(obj);
         }
-        private void cargarMesa()
+        private void cargarNoComanda()
         {
             dbcomandas dbe = new dbcomandas();
             clasecomanda obj = new clasecomanda();
             DataTable datos = new DataTable();
 
-            obj.noComanda = cmbNoComanda.Text;
+            obj.mesa = Convert.ToInt32(cmbNoComanda.Text);
             datos = dbe.ConsultarPuesto(obj);
             if (datos.Rows.Count > 0)
             {
-                lblMesa.Text = datos.Rows[0]["mesa"].ToString();
+                lblMesa.Text = datos.Rows[0]["noComanda"].ToString();
             }
 
         }
@@ -127,7 +127,7 @@ namespace IS_Comandas_.Mesero
             dbcomandas database = new dbcomandas();
             DataTable datos = new DataTable();
             clasecomanda obj = new clasecomanda();
-            obj.noComanda = cmbNoComanda.SelectedValue.ToString();
+            obj.mesa = Convert.ToInt32(cmbNoComanda.SelectedValue.ToString());
             datos = database.ConsultarCodigoH(obj);
             dgvComanda.DataSource = datos;
         }
@@ -175,24 +175,20 @@ namespace IS_Comandas_.Mesero
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione una fila valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Seleccione una fila válida.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("No hay elementos seleccionados", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No hay elementos seleccionados.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            // Obtiene la fila seleccionada en el DataGridView
-
-
-
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             cargarDatos();
             act();
             cmbNoComanda.Enabled = false;
-            cargarMesa();
+            cargarNoComanda();
         }
 
         private void frmModComanda_Load(object sender, EventArgs e)
@@ -232,14 +228,14 @@ namespace IS_Comandas_.Mesero
             dbProducto = Nombre;
             dbPrecio = float.Parse(Precio);
             dbCantidad = txtCantidad.Text;
-            dbNoComanda = cmbNoComanda.Text;
+            dbNoComanda = lblMesa.Text;
             dbComentarios = txtComentarios.Text;
-            dbMesa = int.Parse(lblMesa.Text);
+            dbMesa = int.Parse(cmbNoComanda.Text);
 
             //cargarproducto();
             if (txtCantidad.Text == "" || txtSearch.Text == "")
             {
-                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rellene correctamente los campos.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -256,7 +252,7 @@ namespace IS_Comandas_.Mesero
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La icomanda se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La comanda se actualizó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Uhab();
         }
 

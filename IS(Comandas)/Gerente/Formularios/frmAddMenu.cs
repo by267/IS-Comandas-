@@ -56,20 +56,20 @@ namespace IS_Comandas_
             datos = database.ConsultarCodigoH(obj);
             if (datos.Rows.Count > 0)
             {
-                MessageBox.Show("El producto ya existe", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El producto ya existe.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 if (txtNombre.Text != "" && txtDescripcion.Text != "" && txtPrecio.Text != "" && cmbCategoria.Text != "")
                 {
                     database.Agregar(obj);
-                    MessageBox.Show("El producto se agrego con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El producto se agregó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Limpiar();
                 }
                 else
                 {
-                    MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Rellene los campos correctamente.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

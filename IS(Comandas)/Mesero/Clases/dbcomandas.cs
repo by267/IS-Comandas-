@@ -93,9 +93,9 @@ namespace IS_Comandas_.Mesero.Clases
         public DataTable ConsultarCodigoH(clasecomanda obj)
         {
             DataTable datos = new DataTable();
-            String sqlConsulta = "select  idComandas, producto, precio, cantidad from comandas where noComanda = @mesa";
+            String sqlConsulta = "select  idComandas, producto, precio, cantidad from comandas where mesa = @mesa";
             comando.Parameters.Clear();
-            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.noComanda;
+            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.mesa;
             this.abrir();
             comando.Connection = conexion;
             comando.CommandText = sqlConsulta;
@@ -127,9 +127,9 @@ namespace IS_Comandas_.Mesero.Clases
         public DataTable sumaTotal(clasecomanda obj)
         {
             DataTable datos = new DataTable();
-            String sqlConsulta = "SELECT ROUND(SUM(precio*cantidad), 3) AS subtotal FROM comandas where noComanda = @mesa;";
+            String sqlConsulta = "SELECT ROUND(SUM(precio*cantidad), 3) AS subtotal FROM comandas where mesa = @mesa;";
             comando.Parameters.Clear();
-            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.noComanda;
+            comando.Parameters.Add("@mesa", MySqlDbType.Int32).Value = obj.mesa;
             this.abrir();
             comando.Connection = conexion;
             comando.CommandText = sqlConsulta;
@@ -139,6 +139,19 @@ namespace IS_Comandas_.Mesero.Clases
             return datos;
         }
         public DataTable ConsultarO(String tabla)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "SELECT DISTINCT mesa FROM comandas;";
+
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
+        }
+        public DataTable ConsultarNC(String tabla)
         {
             DataTable datos = new DataTable();
             String sqlConsulta = "SELECT DISTINCT noComanda FROM comandas;";
@@ -154,9 +167,23 @@ namespace IS_Comandas_.Mesero.Clases
         public DataTable ConsultarPuesto(clasecomanda obj)
         {
             DataTable datos = new DataTable();
-            String sqlConsulta = "select * from comandas where noComanda = @comanda";
+            String sqlConsulta = "select * from comandas where mesa = @comanda";
             comando.Parameters.Clear();
-            comando.Parameters.Add("@comanda", MySqlDbType.VarChar).Value = obj.noComanda;
+            comando.Parameters.Add("@comanda", MySqlDbType.VarChar).Value = obj.mesa;
+            this.abrir();
+            comando.Connection = conexion;
+            comando.CommandText = sqlConsulta;
+            adaptador.SelectCommand = comando;
+            adaptador.Fill(datos);
+            this.cerrar();
+            return datos;
+        }
+        public DataTable ConsultarInfo(clasecomanda obj)
+        {
+            DataTable datos = new DataTable();
+            String sqlConsulta = "select * from comandas where mesa = @comanda";
+            comando.Parameters.Clear();
+            comando.Parameters.Add("@comanda", MySqlDbType.VarChar).Value = obj.mesa;
             this.abrir();
             comando.Connection = conexion;
             comando.CommandText = sqlConsulta;

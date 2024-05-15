@@ -147,7 +147,7 @@
             this.btnAddMenu.Name = "btnAddMenu";
             this.btnAddMenu.Size = new System.Drawing.Size(400, 100);
             this.btnAddMenu.TabIndex = 12;
-            this.btnAddMenu.Text = "Menu";
+            this.btnAddMenu.Text = "Menú";
             this.btnAddMenu.Click += new System.EventHandler(this.btnAddMenu_Click);
             // 
             // btnAddCategoria
@@ -165,7 +165,7 @@
             this.btnAddCategoria.Name = "btnAddCategoria";
             this.btnAddCategoria.Size = new System.Drawing.Size(400, 100);
             this.btnAddCategoria.TabIndex = 11;
-            this.btnAddCategoria.Text = "Categoria";
+            this.btnAddCategoria.Text = "Categoría";
             this.btnAddCategoria.Click += new System.EventHandler(this.btnAddCategoria_Click);
             // 
             // btnAddMesa

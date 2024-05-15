@@ -24,7 +24,7 @@ namespace IS_Comandas_.Mesero
             cmbNoComanda.Text = "Selecciona una opcion";
             dbcomandas db = new dbcomandas();
 
-            cmbNoComanda.DataSource = db.ConsultarO("noComanda");
+            cmbNoComanda.DataSource = db.ConsultarNC("noComanda");
             cmbNoComanda.DisplayMember = "noComanda";
             cmbNoComanda.ValueMember = "noComanda";
         }
@@ -43,7 +43,7 @@ namespace IS_Comandas_.Mesero
 
             if (cmbNoComanda.Text == "")
             {
-                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una opción válida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else
@@ -54,7 +54,7 @@ namespace IS_Comandas_.Mesero
                 DataTable datos = new DataTable();
                 database.EliminarE(obj);
 
-                MessageBox.Show("La comanda se elimino con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("La comanda se eliminó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 desMesa();
                 tCombo.Stop();
             }

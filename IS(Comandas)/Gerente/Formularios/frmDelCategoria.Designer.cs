@@ -77,9 +77,9 @@
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(37, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(426, 30);
+            this.label1.Size = new System.Drawing.Size(427, 30);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Seleccione la categoria que desea eliminar";
+            this.label1.Text = "Seleccione la categoría que desea eliminar";
             // 
             // btnAceptar
             // 
@@ -146,7 +146,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(500, 30);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Eliminar Categoria";
+            this.label2.Text = "Eliminar Categoría";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmDelCategoria

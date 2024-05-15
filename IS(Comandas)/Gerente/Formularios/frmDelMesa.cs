@@ -34,26 +34,8 @@ namespace IS_Comandas_.Gerente
             ClassMesa obj = new ClassMesa();
 
             database.Eliminar();
-            MessageBox.Show("La mesa se elimino con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La mesa se eliminó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             volver();
-
-            /*if (cmbMesa.Text == "")
-            {
-                MessageBox.Show("Seleccion no valida", "Sistema");
-
-            }
-            else
-            {
-                obj.Id = int.Parse(cmbMesa.SelectedValue.ToString());
-
-                tCombo.Start();
-                DataTable datos = new DataTable();
-                database.EliminarE(obj);
-
-                MessageBox.Show("Se elimino con exito", "Sistema");
-
-                tCombo.Stop();
-            }*/
         }
     }
 }

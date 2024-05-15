@@ -31,10 +31,14 @@ namespace IS_Comandas_
         float porPropina;
         float total;
         float feria;
+        float feriaR;
         int ingreso;
         int Conteo;
         int Fila = 0;
         int mesa;
+        string producto;
+        float precio;
+        int cantidad;
         public string empleado;
         public static class DatosCompartidos
         {
@@ -50,9 +54,9 @@ namespace IS_Comandas_
             cmbNoComanda.Text = "Selecciona una opcion";
             dbcomandas db = new dbcomandas();
 
-            cmbNoComanda.DataSource = db.ConsultarO("noComanda");
-            cmbNoComanda.DisplayMember = "noComanda";
-            cmbNoComanda.ValueMember = "noComanda";
+            cmbNoComanda.DataSource = db.ConsultarO("mesa");
+            cmbNoComanda.DisplayMember = "mesa";
+            cmbNoComanda.ValueMember = "mesa";
         }
         private void cargarDatos()
         {
@@ -60,7 +64,7 @@ namespace IS_Comandas_
             DataTable datos = new DataTable();
             clasecomanda obj = new clasecomanda();
             
-            obj.noComanda = cmbNoComanda.SelectedValue.ToString();
+            obj.mesa = Convert.ToInt32(cmbNoComanda.SelectedValue.ToString());
             datos = database.ConsultarCodigoH(obj);
             dgvDatos.DataSource = datos;
             
@@ -96,7 +100,8 @@ namespace IS_Comandas_
         {
             float dinero = float.Parse(txtIngreso.Text);
             feria = dinero - total;
-            lblCambio.Text = feria.ToString();
+            string roundedString = feria.ToString("F2"); 
+            lblCambio.Text = roundedString.ToString();
         }
         private void InstalledPrintersCombo()
         {
@@ -117,7 +122,7 @@ namespace IS_Comandas_
             clasecomanda obj = new clasecomanda();
             DataTable datos = new DataTable();
 
-            obj.noComanda = cmbNoComanda.Text;
+            obj.mesa = Convert.ToInt32( cmbNoComanda.Text);
             datos = dbe.ConsultarPuesto(obj);
             if (datos.Rows.Count > 0)
             {
@@ -129,7 +134,7 @@ namespace IS_Comandas_
         {
             if(cmbInstalledPrinters == null)
             {
-                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una opcion válida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -143,20 +148,18 @@ namespace IS_Comandas_
         }
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            
-
             dbcomandas database = new dbcomandas();
             clasecomanda obj = new clasecomanda();
             DataTable datos = new DataTable();
             if (cmbNoComanda.SelectedValue == null)
             {
-                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una opcion válida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 cargarDatos();
                 cargarMesa();
-                obj.noComanda = cmbNoComanda.SelectedValue.ToString();
+                obj.mesa = Convert.ToInt32( cmbNoComanda.SelectedValue.ToString());
                 datos = database.sumaTotal(obj);
                 lblSubtotal.Text = datos.Rows[0]["subtotal"].ToString();
 
@@ -269,7 +272,7 @@ namespace IS_Comandas_
 
 
             database.Agregar(obj);
-            MessageBox.Show("El ticket se creo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("El ticket se creó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtPropina_KeyPress(object sender, KeyPressEventArgs e)
@@ -308,6 +311,29 @@ namespace IS_Comandas_
             impTicket imp = new impTicket();
             ticket obj = new ticket();
 
+            dbcomandas dbe = new dbcomandas();
+            clasecomanda obj2 = new clasecomanda();
+            DataTable datos = new DataTable();
+
+            obj2.mesa = Convert.ToInt32(cmbNoComanda.Text);
+            datos = dbe.ConsultarInfo(obj2);
+
+            int precision = 2; // Limit to 2 digits after the decimal point
+
+            float subtotal1 = float.Parse(lblSubtotal.Text);
+            float total1 = float.Parse(lblTotal.Text);
+            float propina1 = subtotal1 / 100 * propina;
+            float feria1 = float.Parse(lblCambio.Text);
+
+            double subtotalRedondeado = Math.Round(subtotal1, precision);
+            string subtotalRe = subtotalRedondeado.ToString();
+            double totalRedondeado = Math.Round(total1, precision);
+            string totalRe = totalRedondeado.ToString();
+            double propinaRedondeado = Math.Round(propina1, precision);
+            string propinaRe = propinaRedondeado.ToString();
+            double ferialRedondeado = Math.Round(feria1, precision);
+            string feriaRe = ferialRedondeado.ToString();
+
             impTicket.CreaTicket Ticket1 = new impTicket.CreaTicket();
 
                 Ticket1.TextoCentro("Empresa xxxxx "); //imprime una linea de descripcion
@@ -326,14 +352,38 @@ namespace IS_Comandas_
                 impTicket.CreaTicket.LineasGuion();
                 impTicket.CreaTicket.EncabezadoVenta();
 
-                impTicket.CreaTicket.LineasGuion();
-                Ticket1.AgregaTotales("Sub-Total", float.Parse(lblSubtotal.Text)); // imprime linea con Subtotal
-                Ticket1.AgregaTotales("Descuento", float.Parse("000")); // imprime linea con decuento total
+            if (datos.Rows.Count > 0)
+            {
+                
+
+                foreach (DataRow row in datos.Rows)
+                {
+                    // Extract product information from the current row
+                    string articulo = row["producto"].ToString();
+                    float precio = float.Parse(row["precio"].ToString());
+                  
+                    double roundedNumber = Math.Round(precio, precision);
+                    string precioR = roundedNumber.ToString();
+
+                    int cantidad = Convert.ToInt32(row["cantidad"].ToString());
+                    double subtotal = precio * cantidad;
+
+                    double redondeado = Math.Round(subtotal, precision);
+                    string subtotalR = roundedNumber.ToString();
+
+                    // Add the item to the ticket
+                    Ticket1.AgregaArticulo(articulo, precioR, cantidad, subtotalR);
+                }
+            }
+
+            impTicket.CreaTicket.LineasGuion();
+                Ticket1.AgregaTotales("Sub-Total", float.Parse(subtotalRe)); // imprime linea con Subtotal
+                Ticket1.AgregaTotales("Propina", float.Parse(propinaRe)); // imprime linea con decuento total
                 Ticket1.TextoIzquierda(" ");
-                Ticket1.AgregaTotales("Total", float.Parse(lblTotal.Text)); // imprime linea con total
+                Ticket1.AgregaTotales("Total", float.Parse(totalRe)); // imprime linea con total
                 Ticket1.TextoIzquierda(" ");
                 Ticket1.AgregaTotales("Efectivo Entregado:", float.Parse(txtIngreso.Text));
-                Ticket1.AgregaTotales("Efectivo Devuelto:", float.Parse(lblCambio.Text));
+                Ticket1.AgregaTotales("Efectivo Devuelto:", float.Parse(feriaRe));
 
 
                 // Ticket1.LineasTotales(); // imprime linea 
@@ -345,12 +395,20 @@ namespace IS_Comandas_
                 Ticket1.TextoIzquierda(" ");
 
                 Ticket1.ImprimirTiket(cmbInstalledPrinters.Text); //Imprimir
-            }
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             cargarCombo();
         }
-        
+        private void txtIngreso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Validar si la tecla presionada es un número o un punto decimal.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Cancelar la pulsación de la tecla.
+                e.Handled = true;
+            }
+        }
     }
 }

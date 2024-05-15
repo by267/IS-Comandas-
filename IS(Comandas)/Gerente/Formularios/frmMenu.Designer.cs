@@ -186,7 +186,7 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(300, 75);
             this.btnMenu.TabIndex = 20;
-            this.btnMenu.Text = "Menu";
+            this.btnMenu.Text = "Menú";
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnDel
@@ -257,7 +257,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 50);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Menu";
+            this.label5.Text = "Menú";
             // 
             // frmMenu
             // 

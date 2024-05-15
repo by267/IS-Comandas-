@@ -40,7 +40,7 @@ namespace IS_Comandas_.Gerente
 
             if (cmbCategoria.Text == "")
             {
-                MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una opción válida.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else
@@ -51,7 +51,7 @@ namespace IS_Comandas_.Gerente
                 DataTable datos = new DataTable();
                 database.EliminarE(obj);
 
-                MessageBox.Show("La categoria se elimino con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("La categoría se eliminó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 tCombo.Stop();
             }

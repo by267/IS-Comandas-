@@ -56,7 +56,7 @@ namespace IS_Comandas_.Gerente.Formularios
                     hab();
                 }
             }
-            else MessageBox.Show("Seleccione una opcion valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else MessageBox.Show("Seleccione una opción válida.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -67,7 +67,7 @@ namespace IS_Comandas_.Gerente.Formularios
             Uhab();
             tComboID.Start();
             database.Actualizar(obj);
-            MessageBox.Show("La categoria se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La categoría se actualizó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             tComboID.Stop();
         }

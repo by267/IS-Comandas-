@@ -52,8 +52,6 @@ namespace IS_Comandas_.Gerente.Formularios
             cmbCategoria.Text = null;
             cmbCategoria.DataSource = null;
             txtSearch.Text = null;
-
-
         }
         private void cargarComboP()
         {
@@ -83,9 +81,7 @@ namespace IS_Comandas_.Gerente.Formularios
                 dgvDatos.Enabled = true;
                 datos();
             }
-            
         }
-
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ID = dgvDatos.Rows[e.RowIndex].Cells["idMenu"].Value.ToString();
@@ -94,7 +90,6 @@ namespace IS_Comandas_.Gerente.Formularios
             Precio = dgvDatos.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
             Categoria = dgvDatos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (txtSearch.Text != "")
@@ -109,11 +104,10 @@ namespace IS_Comandas_.Gerente.Formularios
             }
             else
             {
-                MessageBox.Show("Rellene correctamente los campos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rellene los campos correctamente.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-        }
-        
+           
+        }       
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             dbMenu database = new dbMenu();
@@ -125,7 +119,7 @@ namespace IS_Comandas_.Gerente.Formularios
             obj.Categoria = cmbCategoria.Text;
             Uhab();
             database.Actualizar(obj);
-            MessageBox.Show("La informacion se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La información se actualizó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         private void cmbCategoria_Click(object sender, EventArgs e)

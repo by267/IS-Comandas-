@@ -218,9 +218,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(639, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(191, 50);
+            this.label5.Size = new System.Drawing.Size(192, 50);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Categoria";
+            this.label5.Text = "Categoría";
             // 
             // guna2PictureBox1
             // 

@@ -69,7 +69,7 @@ namespace IS_Comandas_.Gerente
             Uhab();
             tComboId.Start();
             database.Actualizar(obj);
-            MessageBox.Show("La informacion se actualizo con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La información se actualizó con éxito.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             tComboId.Stop();
 

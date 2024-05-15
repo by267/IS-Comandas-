@@ -258,7 +258,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(250, 25);
             this.label4.TabIndex = 26;
-            this.label4.Text = "Categoria";
+            this.label4.Text = "Categoría";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtPrecio

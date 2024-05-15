@@ -134,9 +134,9 @@ namespace IS_Comandas_.Ticket
             }
 
             // se le pasan los Aticulos  con sus detalles
-            public void AgregaArticulo(string Articulo, double precio, int cant, double subtotal)
+            public void AgregaArticulo(string Articulo, string precio, int cant, string subtotal)
             {
-                if (cant.ToString().Length <= 3 && precio.ToString("c").Length <= 10 && subtotal.ToString("c").Length <= 11) // valida que cant precio y total esten dentro de rango
+                if (cant.ToString().Length <= 3 && precio.ToString().Length <= 10 && subtotal.ToString().Length <= 11) // valida que cant precio y total esten dentro de rango
                 {
                     string elementos = "", espacios = "";
                     bool bandera = false;
