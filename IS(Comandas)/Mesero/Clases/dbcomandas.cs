@@ -204,8 +204,8 @@ namespace IS_Comandas_.Mesero.Clases
         }
         public void EliminarM(clasecomanda obj)
         {
-            String sqlConsulta = "DELETE FROM comandas WHERE noComanda = @ID";
-            comando.Parameters.Add("@ID", MySqlDbType.Int32).Value = obj.noComanda;
+            String sqlConsulta = "DELETE FROM comandas WHERE mesa = @ID";
+            comando.Parameters.Add("@ID", MySqlDbType.Int32).Value = obj.mesa;
             this.abrir();
             comando.Connection = conexion;
             comando.CommandText = sqlConsulta;

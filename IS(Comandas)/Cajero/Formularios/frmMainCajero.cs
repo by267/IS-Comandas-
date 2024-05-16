@@ -210,14 +210,14 @@ namespace IS_Comandas_
         {
             dbMesa database = new dbMesa();
             ClassMesa obj = new ClassMesa();
-            obj.Id = mesa;
+            obj.Id = Convert.ToInt32(cmbNoComanda.Text);
             database.desactivarMesa(obj);
             //MessageBox.Show("La mesa se activó con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             dbcomandas database2 = new dbcomandas();
             clasecomanda obj2 = new clasecomanda();
 
-            obj2.noComanda = cmbNoComanda.Text;
+            obj2.mesa = Convert.ToInt32(cmbNoComanda.Text);
 
             database2.EliminarM(obj2);
         }
@@ -409,6 +409,11 @@ namespace IS_Comandas_
                 // Cancelar la pulsación de la tecla.
                 e.Handled = true;
             }
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

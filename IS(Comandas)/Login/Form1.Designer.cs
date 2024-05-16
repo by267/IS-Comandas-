@@ -165,6 +165,7 @@
             // lblPuesto
             // 
             this.lblPuesto.AutoSize = true;
+            this.lblPuesto.ForeColor = System.Drawing.Color.Transparent;
             this.lblPuesto.Location = new System.Drawing.Point(232, 473);
             this.lblPuesto.Name = "lblPuesto";
             this.lblPuesto.Size = new System.Drawing.Size(35, 13);
